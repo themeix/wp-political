@@ -1,0 +1,72 @@
+// Color 
+
+$primary:#041d57 ;
+$secondary: #1e2127;
+$success:#3BCF93;
+$info: #F5F6F8;
+$danger:#dc3545;
+$warning:#fdcb6e;
+$light:#FFFFFF; 
+
+$body-color:#545f78;
+
+// Extra Colors
+$gradient: linear-gradient(90deg, rgba(3,57,168,0.9) 0%, rgba(20,20,51,1) 45%, rgba(20,20,51,1) 100%);
+
+// Forms
+$input-bg: transparent;
+$input-placeholder-color: #3c4858;
+
+// Body
+
+
+
+// Typography
+
+$font-size-base:              1.1rem;
+$font-family-base: 'Roboto', sans-serif;
+$headings-font-family: 'Poppins', sans-serif;
+$headings-font-weight:800;
+$font-weight-bold:800;
+$font-weight-semi:600;
+$line-height-base:            1.6;
+$headings-line-height:  1.2 ;
+$display-line-height: 1.1 ;
+$h1-font-size:   $font-size-base * 3.5;
+$h2-font-size:    $font-size-base * 2 ;
+$h3-font-size:      $font-size-base * 1.75;
+$h4-font-size:      $font-size-base * 1.5 ;
+$h5-font-size:     $font-size-base * 1.25 ;
+$h6-font-size:     $font-size-base ;
+$display1-weight:             800;
+$display2-weight:             800;
+$display3-weight:             800;
+$display4-weight:             800;
+
+// Component
+
+$border-radius:               .25rem;
+$box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+// Spacing
+
+$spacer: 1rem;
+$spacers: ();
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer *  1),
+    2: ($spacer *  1.5),
+    3: ($spacer * 3.75),
+    4: ($spacer * 5),
+    5: ($spacer * 6.25)
+  ),
+  $spacers
+);
+
+// Buttons
+$input-btn-padding-y:      .6rem;
+$input-btn-padding-x:      1.875rem ;
+$input-btn-padding-y-sm:      .5rem; 
+$input-btn-padding-x-sm:      1rem ;
+$input-btn-padding-y-lg:      .5rem;
+$input-btn-padding-x-lg:      1rem ;

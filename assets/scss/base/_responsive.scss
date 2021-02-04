@@ -1,0 +1,243 @@
+/* ============================================== 
+  Media Query : 1200px
+============================================== */
+@media only screen and (max-width:1200px) {
+
+.hero-item .hero-man-image{
+  height:600px;
+}
+.hero-wrapper {
+    padding: 10rem 0;
+}
+ 
+.header-3{
+  .header-navbar {
+      .navbar-nav{
+        .nav-item{
+            .nav-link {
+                padding: 2rem 1rem; 
+            }
+           }
+        }
+   }
+}
+
+
+
+}
+
+
+
+
+/* ============================================== 
+  Media Query : 991px
+============================================== */
+@media only screen and (max-width: 991px ) {
+.header-navbar{
+     .navbar-brand{
+        position:absolute;
+        top: .2rem;
+        z-index: 111;
+        img{
+          height:30px;
+        }
+     }
+   .mean-bar{
+      background-color:transparent;
+       a.meanmenu-reveal{
+         color: $secondary;
+       }
+       a.meanmenu-reveal span{
+           background-color:$secondary; 
+       }
+  }
+   .mean-nav{
+      background-color:$light; 
+      .navbar-nav{
+         .nav-item{
+            .nav-link {
+                padding: 1rem 1rem;
+            }
+         }
+        li{
+          a{
+            color:$secondary;
+            border-top: .1rem solid rgba($primary, 0.2);
+          }
+          a.mean-expand{
+            &:hover{
+               background-color:transparent;
+            }
+         }
+        }
+      }
+      .nav-item{
+         .dropdown-menu{
+            background-color:unset; 
+            border:0;
+         }
+      }
+      > ul.navbar-nav{
+        max-height: 50rem;
+        overflow-y: auto;
+      }
+   }
+
+}
+.header-2{
+   .header-logobar{
+      display: none;
+   }
+   .header-navbar{
+   .navbar-brand{
+      display: block;
+     }
+   }
+}
+.header-3{
+  .header-navbar {
+     .navbar-brand{
+        margin-left: 0;
+        transform:unset;
+     }
+   }
+}
+.header-4{ 
+    top: 0;
+    background-color:$light; 
+    position: relative;
+    .header-navbar {
+     .navbar-nav{
+      .nav-item{
+            .nav-link {
+                color:$secondary;
+            }
+         }
+        li{
+          a{
+            color:$secondary;
+          }
+        }
+      }
+    }
+}
+.hero-wrapper {
+    padding: 6rem 0;
+}
+ 
+.hero-item .hero-content {
+    max-width: 100%;
+}
+.testimonial-box {
+    padding-right: 4rem;
+}
+.testimonial-box .box-content {
+    padding-left: 2rem;
+}
+ 
+
+
+
+
+}
+
+
+
+
+
+/* ============================================== 
+  Media Query : 767px
+============================================== */
+@media only screen and (max-width: 767px) {
+.display-1{
+   font-size:4rem;
+}
+.display-2{
+   font-size:3.5rem;
+}
+.display-3{
+   font-size:2.5rem;
+}
+.display-4{
+   font-size:2rem;
+}
+.hero-wrapper {
+    padding: 5rem 0;
+}
+.hero-item .hero-content {
+    max-width: 100%;
+}
+
+.mobile-dots{
+   .slick-dots{
+    display:flex !important;   
+   }
+}
+.hero-arrows{
+   display:none !important;  
+}
+
+.testimonial-box{
+	padding-right:0; 
+}
+.testimonial-box .box-image{
+	width:5rem;
+	height:5rem;
+}
+.testimonial-box .box-content{
+	width:calc(100% - 5rem);
+}
+.entry-tags,.entry-social{
+   float:none !important;
+   margin:.5rem 0 !important; 
+}
+
+.footer-widget{
+	margin-bottom:2rem; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+/* ============================================== 
+  Media Query : 575px
+============================================== */
+@media only screen and (max-width: 575px) {
+.upcoming-campaign .upcoming-campaign-wrapper #countdown ul li h3{
+	font-size:2rem; 
+}
+.upcoming-campaign .upcoming-campaign-wrapper #countdown ul li {
+    margin: 0 0.4rem;
+}
+.mobile-dots{
+   .slick-dots{
+    display:none !important;    
+   }
+}
+
+}
