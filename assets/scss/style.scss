@@ -748,15 +748,15 @@ a.meanmenu-reveal {
   display: flex;
   justify-content: center;
   .pagination {
-    li {
+    .nav-links {
       a {
         border: 0 !important;
-        border-radius:0 !important; 
         &.active,
         &:hover {
           color: $light;
           background-color: $danger;
           z-index: 0;
+          border-radius: .25rem;
         }
       }
     }
@@ -836,11 +836,6 @@ a.meanmenu-reveal {
   .pagination {
     display: flex;
     justify-content: space-between;
-    li {
-      a {
-     
-      }
-    }
   }
 }
 

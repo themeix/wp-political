@@ -226,6 +226,15 @@ $('.navbar-list').each( function( i, buttonGroup ) {
 $('.menu-item-has-children > a').addClass('toogler');
 $('.dropdown ul').addClass('sub-dropdown');
 
+$('.dropdown-menu').parent().hover(function() {
+  var menu = $(this).find("ul");
+  var menupos = $(menu).offset();
+  var test = menupos.left + menu.width();
+  if (test > $(window).width()) {
+      var newpos = -$(menu).width();
+      menu.css({ left: newpos });
+  }
+});
 
 }(jQuery));
 

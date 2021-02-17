@@ -33,6 +33,7 @@
                 a {
                     padding: 8px 0;
                     display: block;
+                    text-decoration: none;
                 }
                 // &:first-child {
                 //     a {
@@ -313,6 +314,28 @@
             color: var(--primary-color);
             font-size: 20px;
             border: 1px solid #eae2d6;
+        }
+    }
+}
+
+// Post pagination
+.pagination {
+    h2.screen-reader-text {
+        display: none;
+    }
+    .nav-links {
+        .page-numbers {
+            padding: 15px;
+            text-decoration: none;
+            border-radius: .25rem;
+            transition: all 0.3s ease-out 0s;
+            &:hover{
+                border-radius: .25rem;
+            }
+        }
+        .page-numbers.current {
+            background-color: $primary;
+            color: $light;
         }
     }
 }

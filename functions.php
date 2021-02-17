@@ -33,7 +33,10 @@ function political_setup()
     load_theme_textdomain('political', get_template_directory() . '/languages');
 
     // Set the default content width.
-    $GLOBALS['content_width'] = 900;
+    global $churel_content_width;
+	if ( ! isset( $churel_content_width ) ) {
+		$churel_content_width = 900;
+	}
 
     //Support Automatic Feed Links 
     add_theme_support('automatic-feed-links');
@@ -68,8 +71,9 @@ function political_setup()
     //Custom Background
     add_theme_support("custom-background");
 
-    require_once get_template_directory() . '/inc/class-wp-navwalker.php';
-    require_once get_template_directory() . '/inc/political-scripts.php';
+    require_once POLITICAL_THEME_DIR . '/inc/class-wp-navwalker.php';
+    require_once POLITICAL_THEME_DIR . '/inc/political-scripts.php';
+    require_once POLITICAL_THEME_DIR . '/inc/breadcrumbs.php';
 }
 add_action('after_setup_theme', 'political_setup');
 
@@ -201,3 +205,5 @@ function political_post_time_ago()
     return sprintf(esc_html__('%s ago', 'political'), human_time_diff(get_the_time('U'), current_time('timestamp')));
 }
 add_filter('the_time', 'political_post_time_ago');
+
+

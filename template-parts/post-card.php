@@ -14,11 +14,12 @@
         <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 
         <ul class="meta-data list-inline">
-            <li class="list-inline-item badge bg-danger"><small> 1 min ago</small></li>
+            <li class="list-inline-item badge bg-danger"><small> <?php echo esc_html( political_post_time_ago() ); ?></small></li>
         </ul>
 
-        <?php get_template_part( 'template-parts/post-excerpt' ); ?>
-        <a href="<?php the_permalink(); ?>" class="read-more-btn">Read More<i class="im im-angle-right"></i></a>
+        <?php get_template_part( 'template-parts/post-excerpt' ); ?></br>
+
+        <a href="<?php the_permalink(); ?>" class="read-more-btn"><?php echo esc_html__( 'Read More', 'political'); ?><i class="im im-angle-right"></i></a>
 
     </div>
 </div>

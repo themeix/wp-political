@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php 
+/**
+ * Template Name: Front Page
+ */
+get_header(); ?>
 
 <!--/// Banner Area /// -->
 <div class="hero-area position-relative overflow-hidden">
