@@ -66,6 +66,7 @@ $(window).on('load',function(){
         }
     }
     bannerslider();
+    
 /*  Slider */
   $('.testimonail-slider').slick({
       autoplay: true,
