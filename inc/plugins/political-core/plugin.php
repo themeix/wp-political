@@ -52,14 +52,23 @@ class PoliticalElementorAddonsMain {
 	    //css style
 		wp_register_style( 'slick', plugins_url( '/assets/css/slick.css', __FILE__ ) );
 		wp_enqueue_style( 'slick' );
+
+	    //app core style
+		wp_register_style( 'app-core', plugins_url( '/assets/css/app.css', __FILE__ ) );
+		wp_enqueue_style( 'app-core' );
 		
 		
 	}
 
 	public function widget_scripts() {
-	    //Enqueue Script
+		
+	    //Enqueue Venobox
 		wp_register_script( 'venobox', plugins_url( '/assets/js/venobox.min.js', __FILE__ ) );
 		wp_enqueue_script( 'venobox' );
+
+	    //Enqueue Slick
+		wp_register_script( 'slick', plugins_url( '/assets/js/slick.min.js', __FILE__ ) );
+		wp_enqueue_script( 'slick' );
 
 		//Political Custom JS
 		wp_register_script( 'political-custom', plugins_url( '/assets/js/custom.js', __FILE__ ) );
@@ -81,6 +90,9 @@ class PoliticalElementorAddonsMain {
 		require_once( __DIR__ . '/widgets/class-campaign-timer.php' );
 		require_once( __DIR__ . '/widgets/class-service-iconbox.php' );
 		require_once( __DIR__ . '/widgets/class-lightbox-video.php' );
+		require_once( __DIR__ . '/widgets/class-testimonial.php' );
+		require_once( __DIR__ . '/widgets/class-volunteer.php' );
+		require_once( __DIR__ . '/widgets/class-gallery.php' );
 	}
 
 	
@@ -97,7 +109,6 @@ class PoliticalElementorAddonsMain {
 		// Its is now safe to include Political Addon Files
 		$this->include_political_addon_files();
 
-
 		// Register Blog Grid Addon
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalBlogGrid() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalHeroSlider() );
@@ -105,6 +116,9 @@ class PoliticalElementorAddonsMain {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalCampaignTimer() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalServiceIconBox() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalLightboxVideo() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalTestimonial() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalVolunteer() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalGallery() );
 		
 	}
 

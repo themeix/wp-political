@@ -78,6 +78,11 @@ function political_setup()
 add_action('after_setup_theme', 'political_setup');
 
 
+
+include_once('inc/tgm/class-tgm-plugin-activation.php');
+include_once('inc/tgm/recommended-plugins.php');
+
+
 //Political Nav Menus
 function political_nav_menus()
 {
