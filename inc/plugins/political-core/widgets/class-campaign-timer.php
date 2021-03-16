@@ -32,7 +32,7 @@ class PoliticalCampaignTimer extends Widget_Base
 
     public function get_icon()
     {
-        return 'fab fa-clock';
+        return 'eicon-clock';
     }
 
     public function get_categories()

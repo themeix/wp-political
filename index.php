@@ -4,10 +4,16 @@ get_header(); ?>
 
 <!--/// Page Title Area /// -->
 <div class="page-title-area py-5 position-relative overflow-hidden">
-    <div class="all-bg-image"><img src="assets/image/hero-bg-img.jpg" alt="image"></div>
+
+    <div class="all-bg-image">
+        <?php if (get_header_image()) : ?>
+            <img src="<?php echo esc_url(get_header_image()); ?>" alt="<?php the_title(); ?>" />
+        <?php endif; ?>
+    </div>
+
     <div class="container">
         <div class="page-title-wrapper text-light text-center">
-            <h1>Latest News</h1>
+            <h1><?php bloginfo( 'name' ); ?></h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index1.html">Home</a></li>

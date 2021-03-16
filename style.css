@@ -13,6 +13,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: twentytwentyone
 Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready
 
-Political WordPress Theme, (C) 2020 WordPress.org
+Political WordPress Theme, (C) 2021 WordPress.org
 Political is distributed under the terms of the GNU GPL.
 */
+.site-identity {
+    min-width: 250px;
+}
+
+h1.site-title a {
+    font-size: 2.6rem;
+}

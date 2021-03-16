@@ -93,6 +93,9 @@ class PoliticalElementorAddonsMain {
 		require_once( __DIR__ . '/widgets/class-testimonial.php' );
 		require_once( __DIR__ . '/widgets/class-volunteer.php' );
 		require_once( __DIR__ . '/widgets/class-gallery.php' );
+		require_once( __DIR__ . '/widgets/class-timeline.php' );
+		require_once( __DIR__ . '/widgets/class-accordion.php' );
+		require_once( __DIR__ . '/widgets/class-campaign.php' );
 	}
 
 	
@@ -119,6 +122,9 @@ class PoliticalElementorAddonsMain {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalTestimonial() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalVolunteer() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalGallery() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalTimeline() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalAccordion() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\PoliticalCampaigns() );
 		
 	}
 

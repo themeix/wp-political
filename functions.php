@@ -34,9 +34,9 @@ function political_setup()
 
     // Set the default content width.
     global $churel_content_width;
-	if ( ! isset( $churel_content_width ) ) {
-		$churel_content_width = 900;
-	}
+    if (!isset($churel_content_width)) {
+        $churel_content_width = 900;
+    }
 
     //Support Automatic Feed Links 
     add_theme_support('automatic-feed-links');
@@ -212,3 +212,73 @@ function political_post_time_ago()
 add_filter('the_time', 'political_post_time_ago');
 
 
+/*
+* Creating a function to create our CPT
+*/
+
+function custom_post_type()
+{
+    // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => esc_html__('Campaigns', 'Post Type General Name', 'political'),
+        'singular_name'       => esc_html__('Campaign', 'Post Type Singular Name', 'political'),
+        'menu_name'           => esc_html__('Campaigns', 'political'),
+        'parent_item_colon'   => esc_html__('Parent Campaign', 'political'),
+        'all_items'           => esc_html__('All Campaigns', 'political'),
+        'view_item'           => esc_html__('View Campaign', 'political'),
+        'add_new_item'        => esc_html__('Add New Campaign', 'political'),
+        'add_new'             => esc_html__('Add New', 'political'),
+        'edit_item'           => esc_html__('Edit Campaign', 'political'),
+        'update_item'         => esc_html__('Update Campaign', 'political'),
+        'search_items'        => esc_html__('Search Campaign', 'political'),
+        'not_found'           => esc_html__('Not Found', 'political'),
+        'not_found_in_trash'  => esc_html__('Not found in Trash', 'political'),
+    );
+
+    // Set other options for Custom Post Type
+
+    $args = array(
+        'label'               => esc_html__('Campaigns', 'political'),
+        'description'         => esc_html__('Campaign news and reviews', 'political'),
+        'labels'              => $labels,
+        'supports'            => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields',),
+        'taxonomies'          => array('genres'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'menu_icon'           => 'dashicons-megaphone',
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+
+    );
+
+    // Registering your Custom Post Type
+    register_post_type('campaign', $args);
+}
+
+add_action('init', 'custom_post_type', 0);
+
+
+if (!class_exists('acf')) :
+    function get_field()
+    {
+        return '';
+    }
+endif;
+
+
+
+function my_acf_google_map_api($api)
+{
+    $api['key'] = 'AIzaSyC4eyPZwA5BW6SQql-gHygfwNxUOS_-sVk';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
