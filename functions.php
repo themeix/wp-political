@@ -33,9 +33,9 @@ function political_setup()
     load_theme_textdomain('political', get_template_directory() . '/languages');
 
     // Set the default content width.
-    global $churel_content_width;
-    if (!isset($churel_content_width)) {
-        $churel_content_width = 900;
+    global $political_content_width;
+    if (!isset($political_content_width)) {
+        $political_content_width = 900;
     }
 
     //Support Automatic Feed Links 
@@ -275,10 +275,60 @@ if (!class_exists('acf')) :
 endif;
 
 
-
-function my_acf_google_map_api($api)
-{
-    $api['key'] = 'AIzaSyC4eyPZwA5BW6SQql-gHygfwNxUOS_-sVk';
-    return $api;
+/**
+ * Load WooCommerce compatibility file.
+ */
+if (class_exists('WooCommerce')) {
+    require get_template_directory() . '/inc/woocommerce.php';
 }
-add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+//Political comments time
+function political_comments_time($date, $d, $comment)
+{
+    return sprintf(_x('%s ago', '%s = human-readable time difference', 'political'), human_time_diff(get_comment_time('U'), current_time('timestamp')));
+}
+add_filter('get_comment_date', 'political_comments_time', 10, 3);
+
+//Comments Layout
+function political_comments($comment, $args, $depth)
+{
+    ?>
+    <li <?php comment_class('mb-4'); ?> id="comment-<?php comment_ID() ?>">
+        <div class="comment-item">
+            <div class="avatar">
+                <?php echo get_avatar($comment, $args['avatar_size']); ?>
+            </div>
+            <div class="content">
+                <h5 class="name text-primary fw-bolder"><?php echo get_comment_author_link(); ?> <span class="ps-1 fs-6 fw-normal text-muted"><?php echo esc_html(get_comment_date()); ?></span></h5>
+                <?php comment_text(); ?>
+
+                <?php comment_reply_link(array_merge($args, array('class' => 'reply', 'reply_text' => esc_html__('Reply', 'political'), 'depth' => $depth, 'max_depth' => $args['max_depth'])), $comment->comment_ID); ?>
+            </div>
+            <?php if ($comment->comment_approved == '0') : ?>
+                <em><i class="icon-info-sign"></i> <?php esc_html_e('Comment awaiting approval', 'political'); ?></em>
+                <br />
+            <?php endif; ?>
+        </div>
+    </li>
+
+<?php
+}
+
+add_filter('comment_reply_link', 'political_replace_reply_link_class');
+
+function political_replace_reply_link_class($class){
+    $class = str_replace("class='comment-reply-link", "class='reply", $class);
+    return $class;
+}
+
+
+
+//custom comments form label
+function political_comment_form_text($fields)
+{
+    $fields['label_submit'] = esc_html__('Add Comment', 'political');
+    $fields['title_reply'] = esc_html__('Leave a Comment', 'political');
+
+    return $fields;
+}
+add_filter('comment_form_defaults', 'political_comment_form_text');

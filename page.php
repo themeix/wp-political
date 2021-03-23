@@ -22,7 +22,7 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-8 mx-auto">
+                    <div class="col-md-12 mx-auto">
                         <div class="entry-content typofix single-post-content">
                             <?php 
                                 the_content(); 

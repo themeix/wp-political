@@ -1,4 +1,4 @@
-<header class="header-area">
+<header class="header-area header-1">
   <nav class="header-topbar">
     <div class="container">
       <ul class="list-inline m-0">
@@ -57,7 +57,7 @@
         </div>
 
         <ul class="navbar-nav nav-search-cart">
-          <li class="nav-item"> <a class="nav-link cart-bar" href="cart.html"><i class="im im-shopping-cart"></i><span>2</span></a></li>
+          <li class="nav-item"> <a class="nav-link cart-bar" href="<?php echo wc_get_cart_url(); ?>"><i class="im im-shopping-cart"></i><span><?php echo WC()->cart->get_cart_contents_count(); ?></span></a></li>
           <li class="nav-item"> <a class="nav-link search-bar" data-bs-toggle="modal" data-bs-target="#searchmodal" href="#"><i class="im im-magnifier"></i></a></li>
         </ul>
         

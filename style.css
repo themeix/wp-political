@@ -16,10 +16,213 @@ Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, 
 Political WordPress Theme, (C) 2021 WordPress.org
 Political is distributed under the terms of the GNU GPL.
 */
+
+/* Blog pagination  */
+
+.pagination .page-numbers {
+    padding: 8px 15px;
+    text-decoration: none;
+    background: #dcd4d4;
+    margin-right: 5px;
+    color: #041d57;
+    border-radius: .25rem;
+    transition: all .3s ease-out 0s;
+}
+
+.pagination span.page-numbers.current {
+    background: #041d57;
+    color: white;
+}
+
+.breadcrumb a {
+    color: gray;
+    text-decoration: none;
+}
+
+.admin-bar .header-area.fixed {
+    top: 32px;
+}
+
 .site-identity {
     min-width: 250px;
 }
 
 h1.site-title a {
     font-size: 2.6rem;
+}
+
+.has_post_thumbnail:before {
+    padding: 0;
+}
+
+/* woocommerce  */
+
+a.added_to_cart.wc-forward {
+    display: block;
+    background: white;
+    color: indianred;
+    padding: 12px 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    width: 50%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.woocommerce table.shop_table td, .woocommerce table.shop_table th {
+    padding: 1rem 2rem!important;
+}
+
+.form-control.input-text {
+    height: 50px;
+    width: 100%!important;
+}
+
+.woocommerce a.remove {
+    height: 1.05em;
+    width: 1.05em;
+    background: red!important;
+    color: white!important;
+    text-align: center!important;
+    padding: -5px;
+}
+
+.shop-cart-table {
+    margin-bottom: auto;
+    padding: 0 40px;
+}
+
+.collaterals .cart_totals {
+    max-width: 600px;
+    margin-left: auto;
+    margin-top: -200px;
+}
+
+.collaterals .woocommerce table.shop_table {
+    margin-top: -8%;
+}
+
+.collaterals .wc-proceed-to-checkout {
+    padding: 0!important;
+    margin-top: -10em;
+    padding-top: 0;
+}
+
+.wc-proceed-to-checkout a.checkout-button {
+    padding-top: 0!important;
+}
+
+.page-title-area {
+    min-height: 40vh;
+    background: #4c3b52;
+}
+
+a.nav-link.cart-bar {
+    position: relative;
+}
+
+.cart-bar span {
+    min-height: 15px;
+    min-width: 15px;
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews, p.no-comments {
+    background: #ffff;
+}
+
+.woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before {
+    top: inherit;
+    position: static;
+    font-size: 11px;
+    margin-right: 5px;
+}
+
+.admin-bar .header-area.fixed .cart-bar span {
+    top: 0.6em;
+}
+
+.modal-backdrop.fade.show {
+    z-index: 9;
+}
+
+nav.woocommerce-MyAccount-navigation ul {
+    padding: 0;
+    margin: 0;
+}
+
+.woocommerce-MyAccount-navigation-link {
+    list-style: none;
+}
+
+.woocommerce-MyAccount-navigation-link a {
+    padding: 15px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 1em;
+    background: #041d57;
+    color: white;
+    border: 1px solid;
+    font-family: 'Poppins';
+}
+
+.woocommerce-MyAccount-content p {
+    font-family: 'Poppins';
+}
+
+.woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews, p.no-comments {
+    background: #ffff;
+    padding-top: 25px;
+}
+
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+    padding: 1em 1em;
+    color: #fff;
+    background-color: #dc3545;
+    margin-top: -5px;
+}
+
+.u-columns.woocommerce-Addresses.col2-set.addresses .woocommerce-Address {
+    padding: 25px;
+    border: 1px solid #ded9d9;
+    background: #ececec;
+}
+
+.woocommerce-account .addresses .title .edit {
+    float: right;
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--success);
+    font-weight: bold;
+}
+
+.u-column1.col-1.woocommerce-Address address {
+    line-height: 2.4;
+}
+
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea {
+    padding: 8px 15px;
+}
+
+form.woocommerce-EditAccountForm.edit-account fieldset {
+    margin-top: 40px;
+}
+
+div#customer_details {
+    margin-bottom: 30px;
+}
+
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea {
+    padding: 15px 15px;
 }
