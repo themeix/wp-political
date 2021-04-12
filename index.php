@@ -1,6 +1,4 @@
-<?php
-
-get_header(); ?>
+<?php get_header(); ?>
 
 <!--/// Page Title Area /// -->
 <div class="page-title-area py-5 position-relative overflow-hidden">

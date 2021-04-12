@@ -34,18 +34,16 @@ $comments_args = array(
     // Remove "Text or HTML to be displayed after the set of comment fields".
     'comment_notes_after' => '',
     // Redefine your own textarea (the comment body).
-    'class_submit' => 'submit_class',
     'fields' => array(
-        'author' => '<div class="form-row"> <div class="form-group col-md-6"><input type="text" class="form-control" name="author" placeholder="' . esc_attr__('Your Name*', 'political') . '" required /></div>',
-        'email' => '<div class="form-group col-md-6"><input class="form-control" placeholder="' . esc_attr__('Your Email*', 'political') . '" name="email" type="email" required></div></div> ',
+        'author' => '<div class="form-group mb-1"><input type="text" name="author" class="form-control" id="1" placeholder="' . esc_attr__('Your Name*', 'political') . '" required> </div>',
+        'email' => '<div class="form-group mb-1"><input type="email" name="email" class="form-control" id="1" placeholder="' . esc_attr__('Your Email*', 'political') . '" required> </div>',
     ),
-    'comment_field' => '<div class="form-row">
-    <div class="form-group col-md-12"><textarea rows="10" class="form-control" placeholder="' . esc_attr__('Type Comment', 'political') . '" class="form-control" id="comment" name="comment" aria-required="true"></textarea></div></div>',
-    'id_form'           => 'commentform',
-    'class_form'      => 'comment-form',
+    'comment_field' => '<div class="form-group mb-1"><textarea class="form-control" name="comment" rows="6" placeholder="' . esc_attr__('Your Feedback', 'political') . '" required></textarea> </div>',
+    'id_form'           => 'entry-form-id',
+    'class_form'      => 'entry-form',
     'id_submit'         => 'submit',
-    'class_submit'   => 'btn-submit load-more-btn',
-    'title_reply_to'    => esc_html__('Leave a Reply to ', 'political').'%s',
+    'class_submit'   => 'btn btn-danger',
+    'title_reply_to'    => esc_html__('Leave a Reply to ', 'political') . '%s',
     'cancel_reply_link' => esc_html__('Cancel Reply', 'political'),
     'format'            => 'xhtml',
 );

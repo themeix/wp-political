@@ -42,39 +42,9 @@
                                 <?php endif; ?>
                             </div>
                             <div class="col-md-6">
-                                <ul class="float-end entry-social list-inline m-0">
-                                    <li class="list-inline-item twitter">
-                                        <a class="mt-1" href="https://twitter.com/" target="_blank">
-                                            <i class="im im-twitter"></i>
-
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item facebook">
-                                        <a class="mt-1" href="https://anchor.fm/" target="_blank">
-                                            <i class="im im-facebook"></i>
-
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item linkedin">
-                                        <a class="mt-1" href="https://soundcloud.com/" target="_blank">
-                                            <i class="im im-linkedin"></i>
-
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item pinterest">
-                                        <a class="mt-1" href="https://www.facebook.com/" target="_blank">
-                                            <i class="im im-pinterest"></i>
-
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item whatsapp">
-                                        <a class="mt-1" href="https://www.linkedin.com/" target="_blank">
-                                            <i class="im im-whatsapp"></i>
-
-                                        </a>
-                                    </li>
-
-                                </ul>
+                                <?php if (class_exists('ThemeixPoliticalPlugin')) : ?>
+                                    <?php echo do_shortcode('[political_social_share]'); ?>
+                                <?php endif; ?>
                             </div>
                         </div>
 
@@ -85,21 +55,30 @@
                     <div class="col-md-8 mx-auto">
                         <div class="entry-author  bg-light  my-3">
                             <div class="author-avata">
-                                <img src="assets/image/author-img.jpg" alt="author">
-                                <span class="fw-bold">Jhon Doe</span>
+                                <?php echo get_avatar(get_the_author_meta('ID'), 90); ?>
+                                <span class="fw-bold"><?php the_author_posts_link(); ?></span>
                             </div>
-                            <p>And through found lead was to the sitting generality for projects lamps. Must of on part. Even our one of
-                                well and they my on board antiquity there back particular attempt. Of increased just it up the make duty
-                                what rational the audiences to might</p>
+                            <?php if (get_the_author_meta('description', get_the_author_meta('ID'))) : ?>
+                                <p><?php echo esc_html(get_the_author_meta('description', get_the_author_meta('ID'))); ?></p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="col-md-8 mx-auto">
                         <nav class="entry-navigation my-3">
+
                             <ul class="pagination">
-                                <li class="page-item"><a class="btn btn-outline-primary btn-sm" href="#">Prev</a></li>
-                                <li class="page-item"><a class="btn btn-outline-primary btn-sm" href="#">Next</a></li>
+                                <?php if (!empty(get_previous_post_link($format = '%link', $prev = 'Prev', $title = 'no'))) : ?>
+                                    <li class="page-item"><?php previous_post_link($format = '%link', $prev = 'Prev', $title = 'no'); ?>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty(get_next_post_link($format = '%link', $next = 'Next', $title = 'no'))) : ?>
+                                    <li class="page-item">
+                                        <?php next_post_link($format = '%link', $next = 'Next', $title = 'no'); ?>
+                                    </li>
+                                <?php endif; ?>
+
                             </ul>
                         </nav>
                     </div>

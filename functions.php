@@ -78,6 +78,10 @@ function political_setup()
 add_action('after_setup_theme', 'political_setup');
 
 
+if (class_exists('kirki')) {
+    require_once POLITICAL_THEME_DIR . '/inc/customizer/class-customizer.php';
+    require_once POLITICAL_THEME_DIR . '/inc/customizer/customizer-options.php';
+}
 
 include_once('inc/tgm/class-tgm-plugin-activation.php');
 include_once('inc/tgm/recommended-plugins.php');
@@ -89,6 +93,8 @@ function political_nav_menus()
     register_nav_menus(array(
         'primary_menu' =>  esc_html__('Primary Menu', 'political'),
         'footer_menu' =>  esc_html__('Footer Menu', 'political'),
+        'header_3_left_menu' =>  esc_html__('Header 3 Left Menu', 'political'),
+        'header_3_right_menu' =>  esc_html__('Header 3 Right Menu', 'political'),
     ));
 }
 add_action('init', 'political_nav_menus');
@@ -267,12 +273,12 @@ function custom_post_type()
 add_action('init', 'custom_post_type', 0);
 
 
-if (!class_exists('acf')) :
-    function get_field()
-    {
-        return '';
-    }
-endif;
+// if (!class_exists('acf')) :
+//     function get_field()
+//     {
+//         return '';
+//     }
+// endif;
 
 
 /**
@@ -316,12 +322,21 @@ function political_comments($comment, $args, $depth)
 
 add_filter('comment_reply_link', 'political_replace_reply_link_class');
 
-function political_replace_reply_link_class($class){
+function political_replace_reply_link_class($class)
+{
     $class = str_replace("class='comment-reply-link", "class='reply", $class);
     return $class;
 }
 
+function political_move_comment_field_to_bottom($fields)
+{
+    $comment_field = $fields['comment'];
+    unset($fields['comment']);
+    $fields['comment'] = $comment_field;
+    return $fields;
+}
 
+add_filter('comment_form_fields', 'political_move_comment_field_to_bottom');
 
 //custom comments form label
 function political_comment_form_text($fields)
@@ -332,3 +347,19 @@ function political_comment_form_text($fields)
     return $fields;
 }
 add_filter('comment_form_defaults', 'political_comment_form_text');
+
+
+// Filter posts link class
+function posts_link_next_class($format)
+{
+    $format = str_replace('href=', 'class="btn btn-outline-primary btn-sm" href=', $format);
+    return $format;
+}
+add_filter('next_post_link', 'posts_link_next_class');
+
+function posts_link_prev_class($format)
+{
+    $format = str_replace('href=', 'class="btn btn-outline-primary btn-sm" href=', $format);
+    return $format;
+}
+add_filter('previous_post_link', 'posts_link_prev_class');

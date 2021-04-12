@@ -72,9 +72,3 @@
     </div>
     <a href="#" class="footer-back"><i class="im im-angle-up"></i></a>
 </footer>
-
-
-<?php wp_footer(); ?>
-</body>
-
-</html>

@@ -8,12 +8,21 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-   <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'churel'); ?></a>
+   <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'political'); ?></a>
+
   <!-- ==================== Header Area ========================= -->
-  <!-- <div class="preloader">
-    <div class="lds-ripple">
-      <div></div>
-      <div></div>
+  <?php if(get_theme_mod( 'preloader', '1' )): ?>
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </div> -->
-<?php get_template_part( 'template-parts/headers/header-1'); ?>
+  <?php endif; ?>
+<?php 
+    if(class_exists('kirki')):
+        get_template_part( 'template-parts/headers/header-'.get_theme_mod('select_header_setting'));
+    else:
+      get_template_part( 'template-parts/headers/header-1');
+    endif;
+?>

@@ -84,8 +84,8 @@ function political_register_required_plugins()
             'required' => false,
         ),
         array(
-            'name' => esc_html__('Wp Fundraising Donation', 'political'),
-            'slug' => 'wp-fundraising-donation',
+            'name' => esc_html__('WooCommerce', 'political'),
+            'slug' => 'woocommerce',
             'required' => false,
         ),
         array(

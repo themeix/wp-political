@@ -26,8 +26,11 @@
     <div class="container">
       <nav class="header-navbar navbar navbar-expand-lg">
 
-        <?php if (has_custom_logo()) : ?>
-          <a class="navbar-brand" href="<?php echo esc_url(home_url()); ?>"><?php the_custom_logo(); ?></a>
+        <?php if (has_custom_logo()) :
+            $logo = get_theme_mod('custom_logo');
+            $image = wp_get_attachment_image_src($logo, 'full');
+            ?>
+            <a class="navbar-brand" href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo esc_url($image[0]); ?>" alt="<?php bloginfo('name'); ?>"></a>
         <?php endif; ?>
 
         <?php if (!empty(get_bloginfo('name')) && display_header_text()) : ?>
@@ -38,8 +41,7 @@
         <?php endif; ?>
 
         <div class="collapse navbar-collapse" id="navbar-menu">
-          <div class="navbar-mean ms-auto">
-
+          <div class="navbar-mean mx-auto">
             <?php
               wp_nav_menu(array(
                 'theme_location' => 'primary_menu',
@@ -51,8 +53,6 @@
                 'walker'            => new WP_Bootstrap_Navwalker(),
               ));
             ?>
-
-
           </div>
         </div>
 
