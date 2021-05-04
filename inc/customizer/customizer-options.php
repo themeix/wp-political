@@ -48,11 +48,6 @@ Kirki::add_panel('footer_options', array(
  => Sections 
 ------------------------------------------*/
 
-Kirki::add_section('social_fixed', array(
-	'title'       => esc_html__('Social Fixed', 'political'),
-	'priority'    => 1,
-	'panel'       => 'general_options',
-));
 Kirki::add_section('back_to_top', array(
 	'title'       => esc_html__('Scroll Back to Top', 'political'),
 	'priority'    => 3,
@@ -120,6 +115,11 @@ Kirki::add_section('search_result', array(
 	'priority'    => 11,
 	'panel'       => 'page_options',
 ));
+Kirki::add_section('404_page', array(
+	'title'       => esc_html__('404', 'political'),
+	'priority'    => 13,
+	'panel'       => 'page_options',
+));
 
 
 Kirki::add_section('body', array(
@@ -178,7 +178,7 @@ Kirki::add_field(
 	'political_config',
 	array(
 		'type'        => 'switch',
-		'settings'    => 'back_to_top',
+		'settings'    => 'back_to_top_settings',
 		'label'       => esc_html__('Enable/Disable Scroll Back to Top', 'political'),
 		'section'     => 'back_to_top',
 		'default'     => '1',
@@ -202,65 +202,6 @@ Kirki::add_field(
 			'on'  => esc_html__('Enable', 'political'),
 			'off' => esc_html__('Disable', 'political'),
 		),
-	)
-);
-Kirki::add_field(
-	'political_config',
-	array(
-		'type'        => 'switch',
-		'settings'    => 'social_fixed_settings',
-		'label'       => esc_html__('Enable/Disable Social Fixed', 'political'),
-		'section'     => 'social_fixed',
-		'default'     => '1',
-		'priority'    => 1,
-		'choices'     => array(
-			'on'  => esc_html__('Enable', 'political'),
-			'off' => esc_html__('Disable', 'political'),
-		),
-	)
-);
-Kirki::add_field(
-	'political_config',
-	array(
-		'type'     => 'link',
-		'settings' => 'facebook_link_setting',
-		'label'    => __( 'Facebook Link', 'political' ),
-		'section'  => 'social_fixed',
-		'default'  => 'https://facebook.com/themeix',
-		'priority' => 3,
-	)
-);
-Kirki::add_field(
-	'political_config',
-	array(
-		'type'     => 'link',
-		'settings' => 'twitter_link_setting',
-		'label'    => __( 'Twitter Link', 'political' ),
-		'section'  => 'social_fixed',
-		'default'  => 'https://twitter.com/themeix',
-		'priority' => 5,
-	)
-);
-Kirki::add_field(
-	'political_config',
-	array(
-		'type'     => 'link',
-		'settings' => 'instagram_link_setting',
-		'label'    => __( 'Instagram Link', 'political' ),
-		'section'  => 'social_fixed',
-		'default'  => 'https://instagram.com/themeix',
-		'priority' => 7,
-	)
-);
-Kirki::add_field(
-	'political_config',
-	array(
-		'type'     => 'link',
-		'settings' => 'pinterest_link_setting',
-		'label'    => __( 'Pinterest Link', 'political' ),
-		'section'  => 'social_fixed',
-		'default'  => 'https://pinterest.com/themeix',
-		'priority' => 7,
 	)
 );
 
@@ -349,20 +290,148 @@ Kirki::add_field(
 	array(
 		'type'        => 'select',
 		'settings'    => 'select_header_setting',
-		'label'       => esc_html__( 'Select header', 'political' ),
+		'label'       => esc_html__('Select header', 'political'),
 		'section'     => 'header_section',
 		'default'     => '1',
-		'placeholder' => esc_html__( 'Select an option...', 'political' ),
+		'placeholder' => esc_html__('Select an option...', 'political'),
+		'description' => esc_html__('Note: This option works for globally. If you select header from pages then this dose not work for that indivisual pages..', 'political'),
 		'priority'    => 1,
 		'multiple'    => 1,
 		'choices'     => array(
-			'1' => esc_html__( 'Header 01', 'political' ),
-			'2' => esc_html__( 'Header 02', 'political' ),
-			'3' => esc_html__( 'Header 03', 'political' ),
-			'4' => esc_html__( 'Header 04', 'political' ),
+			'1' => esc_html__('Header 01', 'political'),
+			'2' => esc_html__('Header 02', 'political'),
+			'3' => esc_html__('Header 03', 'political'),
+			'4' => esc_html__('Header 04', 'political'),
 		),
 	)
 );
+Kirki::add_field('political_config', array(
+	'type'        => 'toggle',
+	'settings'    => 'header_location_toggle_settings',
+	'label'       => esc_html__('Header Location', 'kirki'),
+	'section'     => 'header_section',
+	'default'     => '1',
+	'priority'    => 2,
+));
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'     => 'text',
+		'settings' => 'header_location_settings',
+		'label'    => esc_html__('Header Location', 'political'),
+		'section'  => 'header_section',
+		'default'  => esc_html__('New York, USA', 'political'),
+		'priority' => 3,
+		'active_callback' => array(
+			array(
+				'setting'  => 'header_location_toggle_settings',
+				'operator' => '==',
+				'value'    => '1',
+			)
+		),
+	)
+);
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'toggle',
+		'settings'    => 'header_social_settings',
+		'label'       => esc_html__('Enable/Disable Header Social', 'political'),
+		'section'     => 'header_section',
+		'default'     => '1',
+		'priority'    => 4,
+	)
+);
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'toggle',
+		'settings'    => 'header_search_options',
+		'label'       => esc_html__('Enable/Disable Header Search', 'political'),
+		'section'     => 'header_section',
+		'default'     => '1',
+		'priority'    => 4,
+	)
+);
+
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'     => 'link',
+		'settings' => 'facebook_link_setting',
+		'label'    => __('Facebook Link', 'political'),
+		'section'  => 'header_section',
+		'default'  => 'https://facebook.com/themeix',
+		'priority' => 5,
+		'active_callback' => array(
+			array(
+				'setting'  => 'header_social_settings',
+				'operator' => '==',
+				'value'    => '1',
+			)
+		),
+	)
+);
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'     => 'link',
+		'settings' => 'twitter_link_setting',
+		'label'    => __('Twitter Link', 'political'),
+		'section'  => 'header_section',
+		'default'  => 'https://twitter.com/themeix',
+		'priority' => 6,
+		'active_callback' => array(
+			array(
+				'setting'  => 'header_social_settings',
+				'operator' => '==',
+				'value'    => '1',
+			)
+		),
+	)
+);
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'     => 'link',
+		'settings' => 'instagram_link_setting',
+		'label'    => __('Instagram Link', 'political'),
+		'section'  => 'header_section',
+		'default'  => 'https://instagram.com/themeix',
+		'priority' => 7,
+		'active_callback' => array(
+			array(
+				'setting'  => 'header_social_settings',
+				'operator' => '==',
+				'value'    => '1',
+			)
+		),
+	)
+);
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'     => 'link',
+		'settings' => 'pinterest_link_setting',
+		'label'    => __('Pinterest Link', 'political'),
+		'section'  => 'header_section',
+		'default'  => 'https://pinterest.com/themeix',
+		'priority' => 8,
+		'active_callback' => array(
+			array(
+				'setting'  => 'header_social_settings',
+				'operator' => '==',
+				'value'    => '1',
+			)
+		),
+	)
+);
+
 Kirki::add_field(
 	'political_config',
 	array(
@@ -512,6 +581,7 @@ Kirki::add_field(
 		'priority'    => 1,
 	)
 );
+
 Kirki::add_field(
 	'political_config',
 	array(
@@ -521,47 +591,94 @@ Kirki::add_field(
 		'description'       => esc_html__('Upload you banner background image', 'political'),
 		'section'     => 'search_result',
 		'default'     => '',
+		'priority'    => 2,
+	)
+);
+
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'text',
+		'settings'    => 'search_nothing_found_text',
+		'label'       => esc_html__('Nothing Found Text', 'political'),
+		'section'     => 'search_result',
+		'default'     => esc_html__('Noting Found', 'political'),
+		'priority'    => 3
+	)
+);
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'textarea',
+		'settings'    => 'search_nothing_found_description_text',
+		'label'       => esc_html__('Nothing Found Description', 'political'),
+		'section'     => 'search_result',
+		'default'     => esc_html__('Sorry, nothing matched your search terms. Please try again with some different keywords.', 'political'),
+		'priority'    => 4
+	)
+);
+
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'image',
+		'settings'    => '404_page_bg',
+		'label'       => esc_html__('Banner Background', 'political'),
+		'description'       => esc_html__('Upload you banner background image', 'political'),
+		'section'     => '404_page',
+		'default'     => '',
+		'priority'    => 1,
+	)
+);
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'color',
+		'settings'    => '404_page_overlay',
+		'label'       => esc_html__('Background Overlay', 'political'),
+		'description'       => esc_html__('Upload you banner background image', 'political'),
+		'section'     => '404_page',
+		'default'     => '',
 		'priority'    => 3,
 	)
 );
 
-
 Kirki::add_field(
 	'political_config',
 	array(
-		'type'        => 'color',
-		'settings'    => 'page_title_bg_overlay',
-		'label'       => esc_html__('Overlay Color', 'political'),
-		'description' => esc_html__('You can pick page title overlay color', 'political'),
-		'section'     => 'page',
-		'active_callback' => array(
-			array(
-				'setting'  => 'page_title_bg',
-				'operator' => '==',
-				'value'    => 'image',
-
-			)
-		)
+		'type'        => 'text',
+		'settings'    => '404_nothing_found_text',
+		'label'       => esc_html__('Nothing Found Text', 'political'),
+		'section'     => '404_page',
+		'default'     => '404 - Noting Found',
+		'priority'    => 4
 	)
 );
 
 Kirki::add_field(
 	'political_config',
 	array(
-		'type'        => 'color',
-		'settings'    => 'page_title_bg_color',
-		'label'       => esc_html__('Color', 'political'),
-		'description' => esc_html__('You can pick page title bg color', 'political'),
-		'section'     => 'page',
-		'default'     => '#8066dc',
-		'active_callback' => array(
-			array(
-				'setting'  => 'page_title_bg',
-				'operator' => '==',
-				'value'    => 'color',
-
-			)
-		)
+		'type'        => 'textarea',
+		'settings'    => '404_nothing_found_description_text',
+		'label'       => esc_html__('Nothing Found Description Text', 'political'),
+		'section'     => '404_page',
+		'default'     => esc_html__('We\'re sorry, the page you were looking for isn\'t found here. The link you followed may either be broken or no longer exists. Please try again, or take a look at our site.','political'),
+		'priority'    => 5
+	)
+);
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'text',
+		'settings'    => '404_back_to_home_text',
+		'label'       => esc_html__('Back to home', 'political'),
+		'section'     => '404_page',
+		'default'     => esc_html__('Back to home','political'),
+		'priority'    => 6
 	)
 );
 
@@ -591,6 +708,7 @@ Kirki::add_field(
 		),
 	)
 );
+
 Kirki::add_field(
 	'political_config',
 	array(
@@ -617,6 +735,7 @@ Kirki::add_field(
 		),
 	)
 );
+
 Kirki::add_field(
 	'political_config',
 	array(
@@ -918,20 +1037,50 @@ Kirki::add_field(
 	array(
 		'type'        => 'select',
 		'settings'    => 'footer_design_settings',
-		'label'       => esc_html__( 'Select footer', 'political' ),
+		'label'       => esc_html__('Select footer', 'political'),
 		'section'     => 'footer_design',
 		'default'     => '1',
-		'placeholder' => esc_html__( 'Select an option...', 'political' ),
+		'placeholder' => esc_html__('Select an option...', 'political'),
+		'description' => esc_html__('Note: This option works for globally. If you select footer from pages then this dose not work for that indivisual pages..', 'political'),
 		'priority'    => 1,
 		'multiple'    => 1,
 		'choices'     => array(
-			'1' => esc_html__( 'Footer 01', 'political' ),
-			'2' => esc_html__( 'Footer 02', 'political' ),
-			'3' => esc_html__( 'Footer 03', 'political' ),
-			'4' => esc_html__( 'Footer 04', 'political' ),
+			'1' => esc_html__('Footer 01', 'political'),
+			'2' => esc_html__('Footer 02', 'political'),
+			'3' => esc_html__('Footer 03', 'political'),
+			'4' => esc_html__('Footer 04', 'political'),
 		),
 	)
 );
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'editor',
+		'settings'    => 'footer_address_content',
+		'label'       => esc_html__('Footer Address Content', 'political'),
+		'section'     => 'footer_design',
+		'default'     => '<a href="' . esc_url(site_url()) . '" class="footer-brand mb-2"><img src="' . POLITICAL_IMG_URL . '/footer-brand.png" alt="image"></a>
+		<ul class="contact-nav mt-2 list-inline">
+		  <li><i class="im im-location"></i>4732 Elk Creek Road, GA, <br>30085, USA</li>
+		  <li><i class="im im-phone"></i>666 777 888</li>
+		  <li><i class="im im-mail"></i>support@themeix.com</li>
+		</ul>',
+		'priority'    => 2,
+	)
+);
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'editor',
+		'settings'    => 'footer_copyright_text',
+		'label'       => esc_html__('Copyright Text', 'political'),
+		'section'     => 'footer_copyright',
+		'default'     => '© 2021 Political - WordPress Theme <i class="im im-heart">  Developed by Themeix ',
+		'priority'    => 2,
+	)
+);
+
 Kirki::add_field(
 	'political_config',
 	array(

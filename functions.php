@@ -116,37 +116,37 @@ function political_sidebar()
         'name' => esc_html__('Footer One', 'political'),
         'id'  => 'footer1',
         'description' =>  esc_html__('Use this sidebar for footer one.', 'political'),
-        'before_title' => '<h5 class="footer-title heading-5">',
+        'before_title' => '<h5 class="mb-2">',
         'after_title' => '</h5>',
-        'before_widget' => '<div id="%1$s" class="footer-widget wow fadeIn widget %2$s">',
-        'after_widget' => '</div>'
+        'before_widget' => '<div class="col-md-4"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
+        'after_widget' => '</div></div>'
     ));
     register_sidebar(array(
         'name' => esc_html__('Footer Two', 'political'),
         'id'  => 'footer2',
         'description' =>  esc_html__('Use this sidebar for footer two.', 'political'),
-        'before_title' => '<h5 class="footer-title heading-5">',
+        'before_title' => '<h5 class="mb-2">',
         'after_title' => '</h5>',
-        'before_widget' => '<div id="%1$s" class="footer-widget wow fadeIn widget %2$s">',
-        'after_widget' => '</div>'
+        'before_widget' => '<div class="col-md-3"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
+        'after_widget' => '</div></div>'
     ));
     register_sidebar(array(
         'name' => esc_html__('Footer Three', 'political'),
         'id'  => 'footer3',
         'description' =>  esc_html__('Use this sidebar for footer three.', 'political'),
-        'before_title' => '<h5 class="footer-title heading-5">',
+        'before_title' => '<h5 class="mb-2">',
         'after_title' => '</h5>',
-        'before_widget' => '<div id="%1$s" class="footer-widget wow fadeIn widget %2$s">',
-        'after_widget' => '</div>'
+        'before_widget' => '<div class="col-md-3"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
+        'after_widget' => '</div></div>'
     ));
     register_sidebar(array(
         'name' => esc_html__('Footer Four', 'political'),
         'id'  => 'footer4',
         'description' =>  esc_html__('Use this sidebar for footer four.', 'political'),
-        'before_title' => '<h5 class="footer-title heading-5">',
+        'before_title' => '<h5 class="mb-2">',
         'after_title' => '</h5>',
-        'before_widget' => '<div id="%1$s" class="footer-widget wow fadeIn widget %2$s">',
-        'after_widget' => '</div>'
+        'before_widget' => ' <div class="col-md-3"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
+        'after_widget' => '</div></div>'
     ));
 }
 add_action('widgets_init', 'political_sidebar');
@@ -363,3 +363,59 @@ function posts_link_prev_class($format)
     return $format;
 }
 add_filter('previous_post_link', 'posts_link_prev_class');
+
+
+if (!function_exists('political_copyright')) {
+    function political_copyright()
+    {
+        echo "<p>" . esc_html__('&copy;copyright - ', 'political') . esc_html(date('Y')) . esc_html__(' political - Designed by', 'political') . '<i class="im im-heart"></i> <a href="' . esc_url(home_url()) . '"> ' . esc_html__('Themeix', 'political') . "</a></p>";
+    }
+}
+
+//political footer
+if (!function_exists('political_header')) {
+    function political_header()
+    {
+        if (have_posts()) :
+            while (have_posts()) : the_post();
+                $political_header = '0';
+                if (class_exists('acf')) :
+                    $political_header = get_field('select_header');
+                endif;
+                if (!$political_header) :
+                    if (class_exists('kirki')) :
+                        get_template_part('template-parts/headers/header-' . get_theme_mod('select_header_setting'));
+                    else :
+                        get_template_part('template-parts/headers/header-1');
+                    endif;
+                else :
+                    get_template_part('template-parts/headers/header-' . get_field('select_header'));
+                endif;
+            endwhile;
+        endif;
+    }
+}
+
+
+if (!function_exists('political_footer')) {
+    function political_footer()
+    {
+        if (have_posts()) :
+            while (have_posts()) : the_post();
+                $political_footer = '0';
+                if (class_exists('acf')) :
+                    $political_footer = get_field('select_footer');
+                endif;
+                if (!$political_footer) :
+                    if (class_exists('kirki')) :
+                        get_template_part('template-parts/footers/footer-' . get_theme_mod('footer_design_settings', '1'));
+                    else :
+                        get_template_part('template-parts/footers/footer-1');
+                    endif;
+                else :
+                    get_template_part('template-parts/footers/footer-' . get_field('select_footer'));
+                endif;
+            endwhile;
+        endif;
+    }
+}

@@ -6,7 +6,7 @@
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <form action="#">
+                <form action="<?php echo esc_url(home_url()); ?>">
                     <div class="input-group">
                         <input type="search" name="s" class="form-control" placeholder="<?php echo esc_attr__('Search Here', 'political'); ?>">
                         <div class="input-group-append">

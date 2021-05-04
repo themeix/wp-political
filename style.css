@@ -25,17 +25,35 @@ Political is distributed under the terms of the GNU GPL.
     right: 4rem;
     top: 4rem;
 }
-
+.search-page-searchform .form-control {
+    height: 50px;
+}
+button.search-submit.btn.btn-primary {
+    height: 50px;
+    margin-top: -2px;
+    margin-left: -15px;
+    border: 1px solid #041d57;
+}
 /* Navbar */
 
 ul#menu-header-3-right {
     float: right;
     width: auto;
 }
+.header-2 .navbar-expand-lg{
+    justify-content: center;
+}
+.header-2 .navbar-collapse{
+    width: auto;
+}
 .header-3 .navbar .navbar-brand img {
     max-height: 50px;
     width: auto;
+    margin: 25px 0;
+}
+header.header-area.header-3.fixed .navbar-brand img{
     margin: 12px 0;
+    transition: .3s;
 }
 .navbar-brand img {
     max-height: 50px;
@@ -62,9 +80,7 @@ ul#menu-header-3-right {
 .header-3 .left-item, .right-item, .middle-item {
     display: inline;
 }
-.header-bottombar {
-    padding-bottom: 30px;
-}
+
 .header-navbar .navbar-nav .nav-item {
     float: left;
 }
@@ -72,9 +88,9 @@ ul.navbar-nav.nav-search-cart {
     min-width: 130px;
     max-width: 170px;
 }
-.header-navbar .navbar-nav .nav-item .nav-link {
+/* .header-navbar .navbar-nav .nav-item .nav-link {
     padding: 1em 1.2em;
-}
+} */
 ul.dropdown-menu.sub-dropdown {
     width: 220px;
 }
@@ -194,14 +210,16 @@ a.nav-link.cart-bar {
     min-height: 15px;
     min-width: 15px;
     position: absolute;
-    top: 12px;
+    top: 25px;
     right: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
 }
-
+.header-2 .cart-bar span {
+    top: 25px;
+}
 .woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews, p.no-comments {
     background: #ffff;
 }
