@@ -10,7 +10,7 @@ function political_scripts()
     wp_enqueue_style('animate', POLITICAL_CSS_URL . '/animate.min.css', array(), rand(455, 65466), 'all');
     wp_enqueue_style('venobox', POLITICAL_CSS_URL . '/venobox.min.css', array(), rand(455, 65466), 'all');
     wp_enqueue_style('lightbox', POLITICAL_CSS_URL . '/lightbox.min.css', array(), rand(455, 65466), 'all');
-    wp_enqueue_style('typofix', POLITICAL_CSS_URL . '/typofix.css', array(), rand(455, 65466), 'all');
+    wp_enqueue_style('political-typofix', POLITICAL_CSS_URL . '/typofix.css', array(), rand(455, 65466), 'all');
     wp_enqueue_style('political-style.min', POLITICAL_CSS_URL . '/style.min.css', array(), rand(455, 65466), 'all');
     wp_enqueue_style('political-stylesheet', get_stylesheet_uri(), array(), rand(455, 65466), 'all');
 

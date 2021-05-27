@@ -9,18 +9,43 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-8 mx-auto">
+                    <?php
+                        $layout = '';
+                        if (class_exists('kirki')) {
+                            $layout = get_theme_mod('blog_single_page_layout', '1');
+
+                            if ($layout == '3') {
+                            get_sidebar();
+                            }
+                        }
+                    ?>
+                    <div class="col-lg-<?php if ($layout == '1' && class_exists('kirki')) {
+                                 echo '12 col-md-12 ';
+                              } elseif (!is_active_sidebar('political-sidebar')) {
+                                 echo '12 col-md-12';
+                              } else {
+                                 echo '8 col-md-7';
+                              } ?> mx-auto">
                         <div class="entry-content typofix single-post-content">
                             <?php
-                                    the_content();
-                                    wp_link_pages(array(
-                                        'before'      => '<div class="single-page-pagination"><div class="single-page-numbers"><span class="page-links-title">' . esc_html__('Pages : ', 'sinju') . '</span>',
-                                        'after'       => '</div></div>',
-                                        'separator'   => ' ',
-                                    ));
-                                    ?>
+                                the_content();
+                                wp_link_pages(array(
+                                    'before'      => '<div class="single-page-pagination"><div class="single-page-numbers"><span class="page-links-title">' . esc_html__('Pages : ', 'sinju') . '</span>',
+                                    'after'       => '</div></div>',
+                                    'separator'   => ' ',
+                                ));
+                            ?>
                         </div>
                     </div>
+                    <?php
+                    if (class_exists('kirki')) {
+                        if ($layout == '2') {
+                        get_sidebar();
+                        }
+                    } else {
+                        get_sidebar();
+                    }
+                    ?>
                 </div>
 
                 <div class="container">

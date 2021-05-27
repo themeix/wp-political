@@ -17,9 +17,12 @@
             <li class="list-inline-item badge bg-danger"><small> <?php echo esc_html( political_post_time_ago() ); ?></small></li>
         </ul>
 
-        <?php get_template_part( 'template-parts/post-excerpt' ); ?></br>
-
-        <a href="<?php the_permalink(); ?>" class="read-more-btn"><?php echo esc_html__( 'Read More', 'political'); ?><i class="im im-angle-right"></i></a>
+        <p class="post-excerpt">
+        <?php get_template_part( 'template-parts/post-excerpt' ); ?>
+        </p>
+        <?php if(get_theme_mod( 'readmore_switch', '1' )): ?>
+            <a href="<?php the_permalink(); ?>" class="read-more-btn"><?php echo esc_html(get_theme_mod('read_more_label', 'Read More')); ?><i class="im im-angle-right"></i></a>
+        <?php endif; ?>
 
     </div>
 </div>

@@ -74,6 +74,7 @@ function political_setup()
     require_once POLITICAL_THEME_DIR . '/inc/class-wp-navwalker.php';
     require_once POLITICAL_THEME_DIR . '/inc/political-scripts.php';
     require_once POLITICAL_THEME_DIR . '/inc/breadcrumbs.php';
+    require_once POLITICAL_THEME_DIR . '/inc/political-inline-style.php';
 }
 add_action('after_setup_theme', 'political_setup');
 
@@ -376,22 +377,30 @@ if (!function_exists('political_copyright')) {
 if (!function_exists('political_header')) {
     function political_header()
     {
-        if (have_posts()) :
-            while (have_posts()) : the_post();
-                $political_header = '0';
-                if (class_exists('acf')) :
-                    $political_header = get_field('select_header');
-                endif;
-                if (!$political_header) :
-                    if (class_exists('kirki')) :
-                        get_template_part('template-parts/headers/header-' . get_theme_mod('select_header_setting'));
-                    else :
-                        get_template_part('template-parts/headers/header-1');
+        if (is_archive() || is_search()) :
+            if (class_exists('kirki')) :
+                get_template_part('template-parts/headers/header-' . get_theme_mod('select_header_setting', '1'));
+            else :
+                get_template_part('template-parts/headers/header-1');
+            endif;
+        else :
+            if (have_posts()) :
+                while (have_posts()) : the_post();
+                    $political_header = '0';
+                    if (class_exists('acf')) :
+                        $political_header = get_field('select_header');
                     endif;
-                else :
-                    get_template_part('template-parts/headers/header-' . get_field('select_header'));
-                endif;
-            endwhile;
+                    if (!$political_header) :
+                        if (class_exists('kirki')) :
+                            get_template_part('template-parts/headers/header-' . get_theme_mod('select_header_setting'));
+                        else :
+                            get_template_part('template-parts/headers/header-1');
+                        endif;
+                    else :
+                        get_template_part('template-parts/headers/header-' . get_field('select_header'));
+                    endif;
+                endwhile;
+            endif;
         endif;
     }
 }
@@ -400,8 +409,16 @@ if (!function_exists('political_header')) {
 if (!function_exists('political_footer')) {
     function political_footer()
     {
-        if (have_posts()) :
-            while (have_posts()) : the_post();
+        if (is_archive() || is_search()) :
+            if (class_exists('kirki')) :
+                get_template_part('template-parts/footers/footer-' . get_theme_mod('footer_design_settings', '1'));
+            else :
+                get_template_part('template-parts/footers/footer-1');
+            endif;
+        else :
+            if (have_posts()) :
+                while (have_posts()) : the_post();
+                endwhile;
                 $political_footer = '0';
                 if (class_exists('acf')) :
                     $political_footer = get_field('select_footer');
@@ -415,7 +432,7 @@ if (!function_exists('political_footer')) {
                 else :
                     get_template_part('template-parts/footers/footer-' . get_field('select_footer'));
                 endif;
-            endwhile;
+            endif;
         endif;
     }
 }

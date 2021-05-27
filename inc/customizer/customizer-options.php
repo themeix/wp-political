@@ -86,7 +86,7 @@ Kirki::add_section('site_brand_section', array(
 ));
 
 Kirki::add_section('page_layout', array(
-	'title'       => esc_html__('Page Layout', 'political'),
+	'title'       => esc_html__('Pages', 'political'),
 	'priority'    => 1,
 	'panel'       => 'page_options',
 ));
@@ -100,8 +100,8 @@ Kirki::add_section('author_page', array(
 	'priority'    => 5,
 	'panel'       => 'page_options',
 ));
-Kirki::add_section('categories_page', array(
-	'title'       => esc_html__('Categories Page', 'political'),
+Kirki::add_section('tag_page', array(
+	'title'       => esc_html__('Tag Page', 'political'),
 	'priority'    => 7,
 	'panel'       => 'page_options',
 ));
@@ -205,7 +205,22 @@ Kirki::add_field(
 	)
 );
 
-
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'radio-image',
+		'settings'    => 'political_blog_layout',
+		'label'       => esc_html__('Blog Layout', 'political'),
+		'section'     => 'blog_page_layout',
+		'default'     => '1',
+		'priority'    => 1,
+		'choices'     => array(
+			'1'   => POLITICAL_IMG_URL . '/layout1.png',
+			'2'   => POLITICAL_IMG_URL . '/layout2.png',
+			'3'   => POLITICAL_IMG_URL . '/layout3.png',
+		)
+	)
+);
 Kirki::add_field(
 	'political_config',
 	array(
@@ -214,11 +229,11 @@ Kirki::add_field(
 		'label'       => esc_html__('Content Page Layout', 'political'),
 		'section'     => 'blog_page_layout',
 		'default'     => '1',
-		'priority'    => 15,
+		'priority'    => 2,
 		'choices'     => array(
-			'3'   => POLITICAL_IMG_URL . '/layout3.png',
 			'1'   => POLITICAL_IMG_URL . '/layout1.png',
 			'2'   => POLITICAL_IMG_URL . '/layout2.png',
+			'3'   => POLITICAL_IMG_URL . '/layout3.png',
 		)
 	)
 );
@@ -232,7 +247,7 @@ Kirki::add_field(
 		'description' => esc_html__('You can show or hide your read more button.', 'political'),
 		'section'     => 'read_more',
 		'default'     => '1',
-		'priority'    => 10,
+		'priority'    => 5,
 		'choices'     => array(
 			'on'  => esc_html__('Enable', 'political'),
 			'off' => esc_html__('Disable', 'political'),
@@ -248,7 +263,7 @@ Kirki::add_field(
 		'label'    => esc_html__('Read More Label', 'political'),
 		'section'  => 'read_more',
 		'default'  => esc_html__('Read More', 'political'),
-		'priority' => 5,
+		'priority' => 10,
 	)
 );
 
@@ -504,46 +519,32 @@ Kirki::add_field(
 		)
 	)
 );
+
+
 Kirki::add_field(
 	'political_config',
 	array(
 		'type'        => 'image',
-		'settings'    => 'categories_banner_bg',
+		'settings'    => 'tag_banner_bg',
 		'label'       => esc_html__('Banner Background', 'political'),
 		'description'       => esc_html__('Upload you banner background image', 'political'),
-		'section'     => 'categories_page',
+		'section'     => 'tag_page',
 		'default'     => '',
 		'priority'    => 1,
 	)
 );
-
 Kirki::add_field(
 	'political_config',
 	array(
 		'type'        => 'color',
-		'settings'    => 'categories_bg_overlay',
+		'settings'    => 'tag_bg_overlay',
 		'label'       => esc_html__('Background Overlay', 'political'),
 		'description'       => esc_html__('Upload you banner background image', 'political'),
-		'section'     => 'categories_page',
+		'section'     => 'tag_page',
 		'default'     => '',
 		'priority'    => 3,
 	)
 );
-
-Kirki::add_field('applin_config', [
-	'type'        => 'select',
-	'settings'    => 'category_layout',
-	'label'       => esc_html__('Category Layout', 'political'),
-	'section'     => 'categories_page',
-	'default'     => '1',
-	'placeholder' => esc_html__('Select your Category layout option', 'political'),
-	'priority'    => 5,
-	'choices'     => [
-		'1' => esc_html__('col-4 | col-4 | col-4', 'political'),
-		'5' => esc_html__('col-6 | col-6', 'political'),
-	],
-]);
-
 Kirki::add_field(
 	'political_config',
 	array(
@@ -757,7 +758,7 @@ Kirki::add_field(
 		'transport'   => 'auto',
 		'output'      => array(
 			array(
-				'element' => array('.entry-content p'),
+				'element' => array('h1'),
 			),
 		),
 	)
@@ -892,6 +893,7 @@ Kirki::add_field(
 		),
 	)
 );
+
 Kirki::add_field(
 	'political_config',
 	array(
@@ -913,7 +915,7 @@ Kirki::add_field(
 		'transport'   => 'auto',
 		'output'      => array(
 			array(
-				'element' => array('.themeix-menu #main-menu li>a'),
+				'element' => array('.navbar-nav .nav-item .nav-link'),
 			),
 		),
 	)
@@ -939,7 +941,7 @@ Kirki::add_field(
 		'transport'   => 'auto',
 		'output'      => array(
 			array(
-				'element' => array('.blog-post .desc h4'),
+				'element' => array('.news-content h4'),
 			),
 		),
 	)
@@ -965,7 +967,7 @@ Kirki::add_field(
 		'transport'   => 'auto',
 		'output'      => array(
 			array(
-				'element' => array('.blog-post .desc .meta-info span'),
+				'element' => array('.news-post .news-content .meta-data small'),
 			),
 		),
 	)
@@ -974,8 +976,8 @@ Kirki::add_field(
 	'political_config',
 	array(
 		'type'        => 'typography',
-		'settings'    => 'postcard_cat',
-		'label'       => esc_html__('Post Category', 'political'),
+		'settings'    => 'postcard_excerpt',
+		'label'       => esc_html__('Post Excerpt', 'political'),
 		'section'     => 'post_card',
 		'priority'    => 10,
 		'default'     => array(
@@ -991,13 +993,37 @@ Kirki::add_field(
 		'transport'   => 'auto',
 		'output'      => array(
 			array(
-				'element' => array('.blog-post .feature-btn'),
+				'element' => array('.news-post .news-content p'),
 			),
 		),
 	)
 );
-
-
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'typography',
+		'settings'    => 'postcard_readmore',
+		'label'       => esc_html__('Readmore', 'political'),
+		'section'     => 'post_card',
+		'priority'    => 10,
+		'default'     => array(
+			'font-family'    => '',
+			'variant'        => 'regular',
+			'font-size'      => '',
+			'line-height'    => '',
+			'letter-spacing' => '',
+			'color'          => '',
+			'text-transform' => 'none',
+			'text-align'     => '',
+		),
+		'transport'   => 'auto',
+		'output'      => array(
+			array(
+				'element' => array('.news-post .news-content .read-more-btn'),
+			),
+		),
+	)
+);
 
 Kirki::add_field(
 	'political_config',
@@ -1007,7 +1033,7 @@ Kirki::add_field(
 		'label'       => esc_html__('Primary Color', 'political'),
 		'section'     => 'colors',
 		'priority'    => 1,
-		'default'     => '#f44336',
+		'default'     => '#041d57',
 	)
 );
 Kirki::add_field(
@@ -1018,7 +1044,7 @@ Kirki::add_field(
 		'label'       => esc_html__('Secondary Color', 'political'),
 		'section'     => 'colors',
 		'priority'    => 2,
-		'default'     => '#333333',
+		'default'     => '#dc3545',
 	)
 );
 Kirki::add_field(
@@ -1029,7 +1055,7 @@ Kirki::add_field(
 		'label'       => esc_html__('Text Color', 'political'),
 		'section'     => 'colors',
 		'priority'    => 3,
-		'default'     => '#383143',
+		'default'     => '#1e2127',
 	)
 );
 Kirki::add_field(

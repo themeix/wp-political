@@ -8,7 +8,7 @@ endif;
 ?>
 <!--/// Page Title Area /// -->
 <div class="page-title-area py-5 position-relative overflow-hidden">
-  <div class="all-bg-image"><img src="<?php echo esc_url($p_title_bg); ?>" alt="<?php echo get_the_title( ); ; ?>"></div>
+  <div class="all-bg-image p-search"><img src="<?php echo esc_url($p_title_bg); ?>" alt="<?php echo get_the_title( ); ; ?>"></div>
   <div class="container">
     <div class="page-title-wrapper text-light text-center">
       <h1> <?php echo esc_html__('Search results for : ', 'political'); ?> <strong><?php echo get_search_query(); ?></strong></h1>

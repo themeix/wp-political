@@ -17,22 +17,43 @@ Political WordPress Theme, (C) 2021 WordPress.org
 Political is distributed under the terms of the GNU GPL.
 */
 
+:root, [data-theme="default"] {
+    --political-text-color: #1e2127;
+    --political-primary-color: #041d57;
+    --political-success-color: #3BCF93;
+    --political-secondary-color: #dc3545;
+    --political-warning-color: #fdcb6e;
+    --political-info-color: #F5F6F8;
+    --political-light-color: #ffffff;
+}
+
+header.header-area.header-4.fixed {
+    padding-top: 0;
+}
+
 /* Search modal */
+
 #searchmodal .modal-dialog {
     margin-top: 130px;
 }
+
 #searchmodal .close {
     right: 4rem;
     top: 4rem;
 }
+
 .search-page-searchform .form-control {
     height: 50px;
 }
+
 button.search-submit.btn.btn-primary {
     height: 50px;
     margin-top: -2px;
     margin-left: -15px;
-    border: 1px solid #041d57;
+    border: 1px solid var(--political-primary-color);
+}
+.testimonial-box{
+    padding: 0;
 }
 /* Navbar */
 
@@ -40,43 +61,59 @@ ul#menu-header-3-right {
     float: right;
     width: auto;
 }
-.header-2 .navbar-expand-lg{
+
+.header-2 .navbar-expand-lg {
     justify-content: center;
 }
-.header-2 .navbar-collapse{
+
+.header-2 .navbar-collapse {
     width: auto;
 }
+
 .header-3 .navbar .navbar-brand img {
     max-height: 50px;
     width: auto;
     margin: 25px 0;
 }
-header.header-area.header-3.fixed .navbar-brand img{
+
+header.header-area.header-3.fixed .navbar-brand img {
     margin: 12px 0;
     transition: .3s;
 }
+
 .navbar-brand img {
     max-height: 50px;
     width: auto;
 }
+header.header-area.header-4.fixed {
+    top: 0;
+}
 .header-4 a img {
     filter: invert(1);
 }
-.header-3 .header-bottombar{
+
+.header-3 .header-bottombar {
     padding-bottom: 0;
 }
+
 .header-3 .header-navbar .navbar-brand {
     position: static;
+}
+.testimonail-slider .slick-dots {
+    right: -80px;
 }
 .logged-in header.header-area.header-4 {
     padding-top: 32px;
 }
+
 .navbar-nav {
     display: block;
 }
-.header-3 ul.navbar-nav{
+
+.header-3 ul.navbar-nav {
     display: flex;
 }
+
 .header-3 .left-item, .right-item, .middle-item {
     display: inline;
 }
@@ -84,19 +121,24 @@ header.header-area.header-3.fixed .navbar-brand img{
 .header-navbar .navbar-nav .nav-item {
     float: left;
 }
+
 ul.navbar-nav.nav-search-cart {
     min-width: 130px;
     max-width: 170px;
 }
+
 /* .header-navbar .navbar-nav .nav-item .nav-link {
     padding: 1em 1.2em;
 } */
+
 ul.dropdown-menu.sub-dropdown {
     width: 220px;
 }
+
 ul.dropdown-menu.sub-dropdown li {
     width: 100%;
 }
+
 /* Blog pagination  */
 
 .pagination .page-numbers {
@@ -110,7 +152,7 @@ ul.dropdown-menu.sub-dropdown li {
 }
 
 .pagination span.page-numbers.current {
-    background: #041d57;
+    background: var(--political-primary-color);
     color: white;
 }
 
@@ -217,9 +259,11 @@ a.nav-link.cart-bar {
     align-items: center;
     padding: 0;
 }
+
 .header-2 .cart-bar span {
     top: 25px;
 }
+
 .woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews, p.no-comments {
     background: #ffff;
 }
@@ -253,7 +297,7 @@ nav.woocommerce-MyAccount-navigation ul {
     display: block;
     text-decoration: none;
     font-size: 1em;
-    background: #041d57;
+    background: var(--political-primary-color);
     color: white;
     border: 1px solid;
     font-family: 'Poppins';
