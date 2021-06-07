@@ -2,7 +2,7 @@
 
   <!--/// Page Title Area /// -->
   <div class="page-title-area py-5 position-relative overflow-hidden">
-    <div class="all-bg-image"><img src="assets/image/hero-bg-img.jpg" alt="image"></div>
+    <div class="all-bg-image"><img src="assets/images/hero-bg-img.jpg" alt="image"></div>
     <div class="container">
       <div class="page-title-wrapper text-light text-center">
         <h1><?php the_archive_title( ); ?></h1>
@@ -14,7 +14,7 @@
 
 <!-- ==================== News Area ========================= -->
 
-<div class="news-area my-5 ">
+<div class="news-area my-5 " id="content">
     <div class="container">
 
         <div class="row">

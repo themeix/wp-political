@@ -1,25 +1,40 @@
-<header class="header-area header-3">
+<header class="header-area header-3 desktop-nav">
     <nav class="header-topbar">
         <div class="container">
-            <ul class="list-inline m-0">
-                <li class="list-inline-item">
-                    <i class="im im-location"></i>Texas, USA
-                </li>
-            </ul>
-            <ul class="list-inline m-0">
-                <li class="list-inline-item">
-                    <a href="#"><i class="im im-facebook"></i></a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#"><i class="im im-twitter"></i></a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#"><i class="im im-youtube"></i></a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#"><i class="im im-pinterest"></i></a>
-                </li>
-            </ul>
+            <?php if (get_theme_mod('header_location_toggle_settings', '1') == '1') : ?>
+                <ul class="list-inline m-0">
+                    <li class="list-inline-item">
+                        <i class="im im-location"></i><?php echo get_theme_mod('header_location_settings', 'New York, USA'); ?></li>
+                </ul>
+            <?php endif; ?>
+            <?php if (get_theme_mod('header_social_settings', '1') == '1') : ?>
+                <ul class="list-inline m-0">
+
+                    <?php if (get_theme_mod('facebook_link_setting', 'https://www.facebook.com')) : ?>
+                        <li class="list-inline-item">
+                            <a href="<?php echo esc_url(get_theme_mod('facebook_link_setting', 'https://www.facebook.com')); ?>"><i class="im im-facebook"></i></a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (get_theme_mod('twitter_link_setting', 'https://www.twitter.com')) : ?>
+                        <li class="list-inline-item">
+                            <a href="<?php echo esc_url(get_theme_mod('twitter_link_setting', 'https://www.twitter.com')); ?>"><i class="im im-twitter"></i></a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (get_theme_mod('youtube_link_setting', 'https://www.youtube.com')) : ?>
+                        <li class="list-inline-item">
+                            <a href="<?php echo esc_url(get_theme_mod('youtube_link_setting', 'https://www.youtube.com')); ?>"><i class="im im-youtube"></i></a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (get_theme_mod('pinterest_link_setting', 'https://www.pinterest.com')) : ?>
+                        <li class="list-inline-item">
+                            <a href="<?php echo esc_url(get_theme_mod('pinterest_link_setting', 'https://www.pinterest.com')); ?>"><i class="im im-pinterest"></i></a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            <?php endif; ?>
         </div>
     </nav>
     <div class="header-bottombar">
@@ -29,7 +44,7 @@
 
                 <div class="collapse navbar-collapse" id="navbar-menu">
 
-                    <nav class="navbar-mean">
+                    <div class="desktop-navbar-mean">
                         <ul class="navbar-nav">
                             <li class="left-item">
                                 <?php
@@ -70,7 +85,7 @@
                                 ?>
                             </li>
                         </ul>
-                    </nav>
+                    </div>
                     <?php get_template_part('template-parts/modal-search'); ?>
                 </div>
 
@@ -86,3 +101,5 @@
         </div>
     </div>
 </header>
+
+<?php get_template_part('template-parts/mobile-nav'); ?>

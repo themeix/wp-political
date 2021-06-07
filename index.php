@@ -12,12 +12,7 @@
     <div class="container">
         <div class="page-title-wrapper text-light text-center">
             <h1><?php bloginfo('name'); ?></h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index1.html">Home</a></li>
-                    <li class="breadcrumb-item">Blog</li>
-                </ol>
-            </nav>
+            <?php echo get_political_breadcrumbs(); ?>
         </div>
     </div>
 </div>
@@ -25,7 +20,7 @@
 
 <!-- ==================== News Area ========================= -->
 
-<div class="news-area my-5 ">
+<div class="news-area my-5 " id="content">
     <div class="container">
 
         <div class="row">
@@ -78,6 +73,5 @@
 
     </div>
 </div>
-
 
 <?php get_footer(); ?>

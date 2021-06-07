@@ -19,10 +19,9 @@ endif;
   </div>
 
 
-
   <!-- ==================== Error Area ========================= -->
 
-  <div class="error-area  py-5 ">
+  <div class="error-area  py-5 " id="content">
     <div class="container">
       <div class="error-content text-center w-75 mx-auto">
         <h3 class="display-5 pb-3"><?php echo esc_html(get_theme_mod('404_nothing_found_text', '404 - Noting Found')); ?></h3>

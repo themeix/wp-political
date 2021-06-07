@@ -3,7 +3,7 @@ function get_political_breadcrumbs()
 {
     // Set variables for later use
     $home_link        = home_url('/');
-    $home_text        = __( 'Home' );
+    $home_text        = esc_html__( 'Home', 'political' );
     $link_before      = '<span typeof="v:Breadcrumb">';
     $link_after       = '</span>';
     $link_attr        = ' rel="v:url" property="v:title"';
@@ -189,7 +189,7 @@ function get_political_breadcrumbs()
     // Handle paged pages
     if ( is_paged() ) {
         $current_page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : get_query_var( 'page' );
-        $page_addon   = $before . sprintf( __( ' ( Page %s )' ), number_format_i18n( $current_page ) ) . $after;
+        $page_addon   = $before . sprintf( esc_html__( ' ( Page %s )', 'political' ), number_format_i18n( $current_page ) ) . $after;
     }
 
     $breadcrumb_output_link  = '';

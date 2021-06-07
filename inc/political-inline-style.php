@@ -36,40 +36,6 @@ function political_inline_style()
             background: '.get_theme_mod('search_bg_overlay').';
         }
 
-        // .page-title-post{
-        //     background-image: url('.esc_url($bg_image).');
-        // }
-        // .header-area{
-        //     background: ' . esc_attr($header_bg) . ';
-        //     background-size: cover;
-        //     background-repeat: no-repeat;
-        // }
-        // .header-logo img{
-        //     max-width: ' . esc_attr(get_theme_mod('brand') . 'px') . '!important;
-        //     width: ' . esc_attr(get_theme_mod('brand') . 'px') . '!important;
-        //     max-height: 150px;
-        //     height: auto;
-        // }
-        // p.site-description {
-        //     font-size: 14px;
-        //     margin: 0;
-        //   }
-          
-        // .authors-title.overlay:before{
-        //     background-color: ' . esc_attr(get_theme_mod('authors_bg_overlay', '')) . ';
-        // }
-        // .author-title.overlay:before{
-        //     background-color: ' . esc_attr(get_theme_mod('author_bg_overlay', '')) . ';
-        // }
-        // .categories-title.overlay:before{
-        //     background-color: ' . esc_attr(get_theme_mod('categories_bg_overlay', '')) . ';
-        // }
-        // .category-title.overlay:before{
-        //     background-color: ' . esc_attr(get_theme_mod('category_bg_overlay', '')) . ';
-        // }
-        // .search-result-title.overlay:before{
-        //     background-color: ' . esc_attr(get_theme_mod('search_result_overlay', '')) . ';
-        // }
     ';
 
     wp_add_inline_style('political-stylesheet', $custom_css);

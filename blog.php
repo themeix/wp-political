@@ -9,7 +9,7 @@ get_header(); ?>
 <?php get_template_part('template-parts/political-page-title'); ?>
 <!-- ==================== News Area ========================= -->
 
-<div class="news-area my-5 ">
+<div class="news-area my-5 " id="content">
   <div class="container">
 
     <div class="row">

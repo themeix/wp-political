@@ -25,6 +25,30 @@ Political is distributed under the terms of the GNU GPL.
     --political-warning-color: #fdcb6e;
     --political-info-color: #F5F6F8;
     --political-light-color: #ffffff;
+    --political-theme-border-radius: 4px;
+}
+
+a.skip-link.screen-reader-text {
+    position: absolute;
+    top: -1000em;
+}
+
+a.skip-link.screen-reader-text:focus {
+    left: 6px;
+    top: 7px;
+    height: auto;
+    width: auto;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 23px 14px;
+    background: #f1f1f1;
+    color: #0073aa;
+    z-index: 100000;
+    line-height: normal;
+    text-decoration: none;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
+    clip: auto;
 }
 
 header.header-area.header-4.fixed {
@@ -52,9 +76,11 @@ button.search-submit.btn.btn-primary {
     margin-left: -15px;
     border: 1px solid var(--political-primary-color);
 }
-.testimonial-box{
+
+.testimonial-box {
     padding: 0;
 }
+
 /* Navbar */
 
 ul#menu-header-3-right {
@@ -85,9 +111,11 @@ header.header-area.header-3.fixed .navbar-brand img {
     max-height: 50px;
     width: auto;
 }
+
 header.header-area.header-4.fixed {
     top: 0;
 }
+
 .header-4 a img {
     filter: invert(1);
 }
@@ -99,11 +127,9 @@ header.header-area.header-4.fixed {
 .header-3 .header-navbar .navbar-brand {
     position: static;
 }
+
 .testimonail-slider .slick-dots {
     right: -80px;
-}
-.logged-in header.header-area.header-4 {
-    padding-top: 32px;
 }
 
 .navbar-nav {
@@ -127,12 +153,8 @@ ul.navbar-nav.nav-search-cart {
     max-width: 170px;
 }
 
-/* .header-navbar .navbar-nav .nav-item .nav-link {
-    padding: 1em 1.2em;
-} */
-
 ul.dropdown-menu.sub-dropdown {
-    width: 220px;
+    width: 180px;
 }
 
 ul.dropdown-menu.sub-dropdown li {
@@ -153,7 +175,7 @@ ul.dropdown-menu.sub-dropdown li {
 
 .pagination span.page-numbers.current {
     background: var(--political-primary-color);
-    color: white;
+    color: var(--political-light-color);
 }
 
 .breadcrumb a {
@@ -186,7 +208,7 @@ h1.site-title a {
 
 a.added_to_cart.wc-forward {
     display: block;
-    background: white;
+    background: var(--political-light-color);
     color: indianred;
     padding: 12px 15px;
     border-radius: 4px;
@@ -209,7 +231,7 @@ a.added_to_cart.wc-forward {
     height: 1.05em;
     width: 1.05em;
     background: red!important;
-    color: white!important;
+    color: var(--political-light-color)!important;
     text-align: center!important;
     padding: -5px;
 }
@@ -222,7 +244,7 @@ a.added_to_cart.wc-forward {
 .collaterals .cart_totals {
     max-width: 600px;
     margin-left: auto;
-    margin-top: -200px;
+    /*margin-top: -200px;*/
 }
 
 .collaterals .woocommerce table.shop_table {
@@ -231,13 +253,15 @@ a.added_to_cart.wc-forward {
 
 .collaterals .wc-proceed-to-checkout {
     padding: 0!important;
-    margin-top: -10em;
+    /*margin-top: -10em;*/
     padding-top: 0;
 }
 
-.wc-proceed-to-checkout a.checkout-button {
-    padding-top: 0!important;
-}
+/* .wc-proceed-to-checkout a.checkout-button { */
+
+/*padding-top: 0!important;*/
+
+/* } */
 
 .page-title-area {
     min-height: 40vh;
@@ -264,8 +288,16 @@ a.nav-link.cart-bar {
     top: 25px;
 }
 
+section.collaterals {
+    margin-top: 50px;
+}
+
+.woocommerce table.shop_table {
+    margin: 24px 0px 24px 0;
+}
+
 .woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews, p.no-comments {
-    background: #ffff;
+    background: var(--political-light-color);
 }
 
 .woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before {
@@ -298,9 +330,14 @@ nav.woocommerce-MyAccount-navigation ul {
     text-decoration: none;
     font-size: 1em;
     background: var(--political-primary-color);
-    color: white;
+    color: var(--political-light-color);
     border: 1px solid;
     font-family: 'Poppins';
+    border-radius: 4px;
+}
+
+.woocommerce-MyAccount-navigation-link.is-active a {
+    background: var(--political-secondary-color);
 }
 
 .woocommerce-MyAccount-content p {
@@ -308,13 +345,13 @@ nav.woocommerce-MyAccount-navigation ul {
 }
 
 .woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews, p.no-comments {
-    background: #ffff;
+    background: var(--political-light-color);
     padding-top: 25px;
 }
 
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
     padding: 1em 1em;
-    color: #fff;
+    color: var(--political-light-color);
     background-color: #dc3545;
     margin-top: -5px;
 }
@@ -351,9 +388,303 @@ div#customer_details {
 
 .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
     background-color: #dc3545;
-    color: #fff;
+    color: var(--political-light-color);
 }
 
 .woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea {
     padding: 15px 15px;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+.wp-caption-text.gallery-caption {
+    margin-top: -5px !important;
+    padding-bottom: 15px !important;
+}
+
+.bypostauthor {
+    display: block;
+}
+
+.upcoming-campaign .upcoming-campaign-wrapper .meta-data li {
+    margin-right: 1rem;
+    display: inline;
+}
+
+.political-sidebar .footer-widget.widget_nav_menu li a:before {
+    content: "";
+}
+
+.footer-widget {
+    padding-bottom: 20px;
+}
+
+.footer-widget label.screen-reader-text {
+    padding-bottom: 10px;
+}
+
+.footer-widget ul {
+    padding: 0;
+}
+
+.footer-widget li {
+    list-style: none;
+}
+
+.footer-widget li a {
+    color: var(--primary-light-color);
+    text-decoration: none;
+    line-height: 2.2em;
+}
+
+.footer-area .widget_search form .btn {
+    background: var(--political-secondary-color);
+    color: var(--political-light-color);
+}
+
+.footer-area a.rsswidget {
+    color: var(--political-light-color);
+}
+
+.footer-area .widget_calendar #wp-calendar caption {
+    color: var(--political-light-color);
+    background: var(--political-secondary-color);
+    margin-bottom: 10px;
+}
+
+.footer-area span.cat-count {
+    float: right;
+    background: var(--political-light-color);
+    width: 23px;
+    border-radius: 50%;
+    color: var(--political-secondary-color);
+    text-align: center;
+    font-size: 14px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.campaign-event .campaign-content .meta-data li {
+    display: inline;
+}
+
+.footer-widget .footer-newsletter button[type=submit] {
+    padding: 14px 15px;
+    position: absolute;
+    top: 0.8px;
+    right: 1px;
+}
+
+.footer-bottom-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-bottom-nav li {
+    display: inline;
+    margin-right: .5rem;
+}
+
+.footer-widget .footer-brand {
+    width: 12.625rem;
+}
+
+.footer-bottom-nav li a {
+    color: var(--political-light-color);
+}
+
+.footer-2 .footer-copyright a {
+    color: var(--political-secondary-color);
+}
+
+.footer-2 .footer-bottom-nav li a {
+    color: var(--political-text-color);
+}
+
+.footer-2 .footer-bottom-nav li a:hover {
+    color: var(--political-primary-color);
+}
+
+.footer-1 .footer-bottom-nav li a, .footer-3 .footer-bottom-nav li a {
+    color: var(--political-light-color);
+}
+
+.footer-1 .footer-bottom-nav li a:hover, .footer-3 .footer-bottom-nav li a:hover {
+    color: var(--political-light-color);
+}
+
+.header-area.mobile-nav {
+    display: none!important;
+}
+
+.desktop-navbar-mean {
+    margin: auto;
+    width: 100%;
+}
+
+.header-3 .header-navbar .navbar-nav .nav-item {
+    margin: auto;
+}
+
+.header-area.fixed .cart-bar span {
+    top: 8px;
+}
+
+.footer-area .widget_text.col-md-3, .footer-area .widget_text.col-md-4 {
+    display: flex;
+    align-items: center;
+}
+.footer-area .wrapper-widget-center {
+    display: block;
+}
+
+.footer-area.footer-1 div#nav_menu-2 {
+    margin-left: 25%;
+}
+
+
+@media only screen and (max-width: 991px) {
+    
+    .header-4.mobile-nav .mean-bar {
+        background: white!important;
+    }
+    .header-4.mobile-nav a.navbar-brand {
+        position: absolute;
+        z-index: 100;
+        top: 0;
+    }
+    .header-4.mobile-nav .mean-container .mean-nav {
+        background: white;
+    }
+    .header-4.mobile-nav .mean-container .mean-nav ul {
+        margin-top: 0;
+    }
+    .header-4.mobile-nav .navbar-nav .nav-item .nav-link {
+        color: var(--political-text-color)!important;
+        border-top: 1px solid;
+    }
+    .header-4.mobile-nav .mean-container .mean-nav ul li a:not(.mean-expand) {
+        color: var(--political-text-color);
+        border-top: 1px solid #383838!important;
+    }
+    .header-4.mobile-nav a.mean-expand {
+        border-top: 0!important;
+        background: #fff!important;
+        color: var(--political-text-color)!important;
+    }
+    a.nav-link.search-bar, a.nav-link.cart-bar {
+        border: none!important;
+    }
+    .header-area.fixed.mobile-nav a.meanmenu-reveal {
+        color: #545f78;
+    }
+    .header-area.desktop-nav {
+        display: none!important;
+    }
+    .header-area.mobile-nav {
+        display: block!important;
+    }
+    .header-2 .header-navbar .navbar-brand {
+        margin-right: 18em;
+    }
+    .header-2 ul.navbar-nav.nav-search-cart li {
+        margin: 0px 0;
+    }
+    .header-2 ul.navbar-nav.nav-search-cart li a {
+        margin: 0;
+        padding: .65em!important;
+    }
+    .header-2 .cart-bar span {
+        top: 2px;
+        right: -5px;
+    }
+    .header-area.fixed.header-2 a.meanmenu-reveal {
+        top: 4px!important;
+    }
+    .header-area.header-4 ul.navbar-nav.nav-search-cart {
+        top: 6px;
+    }
+    .header-area.fixed.header-4 ul.navbar-nav.nav-search-cart {
+        top: -2px;
+    }
+    .header-area.header-4 .mean-container a.meanmenu-reveal {
+        top: 4px;
+        color: var(--political-primary-color);
+    }
+    ul#menu-primary-menu {
+        max-height: 680px;
+        overflow-x: auto;
+        margin-top: 20px;
+    }
+    .header-bottombar {
+        padding: 20px 0;
+    }
+    .header-area .header-bottombar {
+        padding: 0;
+    }
+    .header-navbar {
+        position: relative;
+    }
+    ul.navbar-nav.nav-search-cart {
+        position: absolute;
+        right: 60px;
+        top: 2px;
+        z-index: 100;
+    }
+    .header-2 .mean-container a.meanmenu-reveal {
+        top: 4px;
+    }
+    .header-area.fixed ul.navbar-nav.nav-search-cart {
+        top: -2px!important;
+    }
+    .header-area.fixed .mean-container a.meanmenu-reveal {
+        top: 2px;
+    }
+    ul.navbar-nav.nav-search-cart li {
+        float: right!important;
+        margin: 0px 15px;
+    }
+    .header-area.fixed ul.navbar-nav.nav-search-cart li {
+        float: right;
+        margin: 0px 0px;
+    }
+    .cart-bar span {
+        top: 0px;
+        right: -14px;
+    }
+    .header-area.fixed .cart-bar span {
+        top: 5px;
+        right: 2px;
+    }
+    .header-area.fixed ul.navbar-nav.nav-search-cart li .nav-link {
+        padding: 1rem 1rem;
+    }
+    .mean-container .mean-nav ul {
+        margin-top: 20px;
+        width: 100%;
+    }
+    .header-area .header-bottombar {
+        padding: 8px 0;
+    }
+    .logged-in header.header-area.fixed {
+        margin-top: 32px;
+    }
+
+    .footer-area.footer-1 div#nav_menu-2 {
+        margin-left: 0%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .logged-in header.header-area.fixed {
+        margin-top: 45px;
+    }
 }

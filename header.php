@@ -20,5 +20,6 @@
       </div>
     </div>
   <?php endif; ?>
-
+  
   <?php political_header(); ?>
+  

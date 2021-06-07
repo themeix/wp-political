@@ -19,7 +19,7 @@ endif;
 
 <!-- ==================== News Area ========================= -->
 
-<div class="news-area my-5 ">
+<div class="news-area my-5 " id="content">
     <div class="container">
 
         <div class="row">

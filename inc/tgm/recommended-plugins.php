@@ -89,6 +89,12 @@ function political_register_required_plugins()
             'required' => false,
         ),
         array(
+            'name' => esc_html__('Political Core', 'political'),
+            'slug' => 'political-core',
+            'source'=> 'https://github.com/akashmdiu/plugins-/raw/master/political-core.zip',
+            'required' => false,
+        ),
+        array(
             'name' => esc_html__('One Click Demo Import', 'political'),
             'slug' => 'one-click-demo-import',
             'required' => false,

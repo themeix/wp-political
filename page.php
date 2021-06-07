@@ -18,7 +18,7 @@
 
         <!-- ==================== News Area ========================= -->
 
-        <div class="news-area my-5 ">
+        <div class="news-area my-5 " id="content">
             <div class="container">
                 <div class="row">
                     <?php
@@ -42,7 +42,7 @@
                             <?php
                                 the_content();
                                 wp_link_pages(array(
-                                    'before'      => '<div class="single-page-pagination"><div class="single-page-numbers"><span class="page-links-title">' . esc_html__('Pages : ', 'sinju') . '</span>',
+                                    'before'      => '<div class="single-page-pagination"><div class="single-page-numbers"><span class="page-links-title">' . esc_html__('Pages : ', 'political') . '</span>',
                                     'after'       => '</div></div>',
                                     'separator'   => ' ',
                                 ));

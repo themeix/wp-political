@@ -58,6 +58,11 @@ Kirki::add_section('preloader', array(
 	'priority'    => 5,
 	'panel'       => 'general_options',
 ));
+Kirki::add_section('political_fonts', array(
+	'title'       => esc_html__('Fonts', 'political'),
+	'priority'    => 5,
+	'panel'       => 'general_options',
+));
 
 Kirki::add_section('blog_page_layout', array(
 	'title'       => esc_html__('Blog', 'political'),
@@ -202,6 +207,17 @@ Kirki::add_field(
 			'on'  => esc_html__('Enable', 'political'),
 			'off' => esc_html__('Disable', 'political'),
 		),
+	)
+);
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'toggle',
+		'settings'    => 'political_fonts_toggle_settings',
+		'label'       => esc_html__('Enable/Disable default fonts', 'political'),
+		'section'     => 'political_fonts',
+		'default'     => '1',
+		'priority'    => 10,
 	)
 );
 
@@ -1085,7 +1101,7 @@ Kirki::add_field(
 		'settings'    => 'footer_address_content',
 		'label'       => esc_html__('Footer Address Content', 'political'),
 		'section'     => 'footer_design',
-		'default'     => '<a href="' . esc_url(site_url()) . '" class="footer-brand mb-2"><img src="' . POLITICAL_IMG_URL . '/footer-brand.png" alt="image"></a>
+		'default'     => '<a href="' . esc_url(home_url()) . '" class="footer-brand mb-2"><img src="' . POLITICAL_IMG_URL . '/footer-brand.png" alt="image"></a>
 		<ul class="contact-nav mt-2 list-inline">
 		  <li><i class="im im-location"></i>4732 Elk Creek Road, GA, <br>30085, USA</li>
 		  <li><i class="im im-phone"></i>666 777 888</li>

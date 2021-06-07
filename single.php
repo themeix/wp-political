@@ -1,11 +1,12 @@
 <?php get_header(); ?>
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
+    
         <?php get_template_part('template-parts/inner-page-title'); ?>
 
         <!-- ==================== News Area ========================= -->
 
-        <div class="news-area my-5 ">
+        <div class="news-area my-5 " id="content">
             <div class="container">
 
                 <div class="row">
@@ -20,9 +21,9 @@
                         }
                     ?>
                     <div class="col-lg-<?php if ($layout == '1' && class_exists('kirki')) {
-                                 echo '12 col-md-12 ';
+                                 echo '8 col-md-8 mx-auto';
                               } elseif (!is_active_sidebar('political-sidebar')) {
-                                 echo '12 col-md-12';
+                                 echo '8 col-md-8 mx-auto';
                               } else {
                                  echo '8 col-md-7';
                               } ?> mx-auto">
@@ -30,7 +31,7 @@
                             <?php
                                 the_content();
                                 wp_link_pages(array(
-                                    'before'      => '<div class="single-page-pagination"><div class="single-page-numbers"><span class="page-links-title">' . esc_html__('Pages : ', 'sinju') . '</span>',
+                                    'before'      => '<div class="single-page-pagination"><div class="single-page-numbers"><span class="page-links-title">' . esc_html__('Pages : ', 'political') . '</span>',
                                     'after'       => '</div></div>',
                                     'separator'   => ' ',
                                 ));

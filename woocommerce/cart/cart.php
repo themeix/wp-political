@@ -58,7 +58,7 @@ do_action('woocommerce_before_cart'); ?>
                                             $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
 
                                             if (!$product_permalink) {
-                                                echo $thumbnail; // PHPCS: XSS ok.
+                                                echo wp_kses_post($thumbnail); // PHPCS: XSS ok.
                                             } else {
                                                 printf('<a href="%s">%s</a>', esc_url($product_permalink), $thumbnail); // PHPCS: XSS ok.
                                             }
@@ -151,7 +151,7 @@ do_action('woocommerce_before_cart'); ?>
                                     <div class="form-group">
                                         <input type="text" name="coupon_code" class="input-text form-control" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'political'); ?>" />
                                     </div>
-                                    <button type="submit" class="btn btn-danger" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'political'); ?>"><?php esc_attr_e('Apply coupon', 'political'); ?></button>
+                                    <button type="submit" class="btn btn-danger" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'political'); ?>"><?php esc_html_e('Apply coupon', 'political'); ?></button>
                                     <?php do_action('woocommerce_cart_coupon'); ?>
                                 </div>
                             <?php } ?>
@@ -188,4 +188,3 @@ do_action('woocommerce_before_cart'); ?>
 </section>
 
 <!-- ==================== News Area ========================= -->
-
