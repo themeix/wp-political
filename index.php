@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <!--/// Page Title Area /// -->
-<div class="page-title-area py-5 position-relative overflow-hidden">
+<div class="page-title-area py-5 position-relative overflow-hidden page-archive-title">
 
     <div class="all-bg-image">
         <?php if (get_header_image()) : ?>

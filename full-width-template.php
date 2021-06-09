@@ -21,7 +21,7 @@ get_header(); ?>
         </div>
 
         <!-- ==================== News Area ========================= -->
-        <div class="full-width-template my-5 " id="content">
+        <div class="full-width-template" id="content">
             <div class="container">
                 <div class="full-width-content">
                     <?php the_content(); ?>

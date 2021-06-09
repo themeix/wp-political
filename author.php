@@ -7,7 +7,7 @@ endif;
 ?>
 
 <!--/// Page Title Area /// -->
-<div class="page-title-area py-5 position-relative overflow-hidden">
+<div class="page-title-area py-5 position-relative overflow-hidden page-archive-title">
   <div class="all-bg-image p-author"><img src="<?php echo esc_url($page_bg); ?>" alt="<?php the_title(); ?>"></div>
   <div class="container">
     <div class="page-title-wrapper text-light text-center">

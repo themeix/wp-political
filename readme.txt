@@ -131,9 +131,4 @@ License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/license-list.html#GPLv2
 
 == Image Credit ==
-Image for Page title, Copyright Steve Johnson
-License: CC0 1.0 Universal (CC0 1.0)
-Source: https://stocksnap.io/photo/colorful-abstract-FGRVJCM51R
-
-
 All images and icons are licensed under [CC0] [https://creativecommons.org/publicdomain/zero/1.0/]

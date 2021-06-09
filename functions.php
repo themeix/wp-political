@@ -119,7 +119,7 @@ function political_sidebar()
         'description' =>  esc_html__('Use this sidebar for footer one.', 'political'),
         'before_title' => '<h5 class="mb-2">',
         'after_title' => '</h5>',
-        'before_widget' => '<div class="col-md-4"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
+        'before_widget' => '<div class="col-md-6 col-lg-4"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
         'after_widget' => '</div></div>'
     ));
 
@@ -129,7 +129,7 @@ function political_sidebar()
         'description' =>  esc_html__('Use this sidebar for footer two.', 'political'),
         'before_title' => '<h5 class="mb-2">',
         'after_title' => '</h5>',
-        'before_widget' => '<div class="col-md-3"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
+        'before_widget' => '<div class="col-md-6 col-lg-3"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
         'after_widget' => '</div></div>'
     ));
 
@@ -139,7 +139,7 @@ function political_sidebar()
         'description' =>  esc_html__('Use this sidebar for footer three.', 'political'),
         'before_title' => '<h5 class="mb-2">',
         'after_title' => '</h5>',
-        'before_widget' => '<div class="col-md-3"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
+        'before_widget' => '<div class="col-md-6 col-lg-3"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
         'after_widget' => '</div></div>'
     ));
 
@@ -149,7 +149,7 @@ function political_sidebar()
         'description' =>  esc_html__('Use this sidebar for footer four.', 'political'),
         'before_title' => '<h5 class="mb-2">',
         'after_title' => '</h5>',
-        'before_widget' => ' <div class="col-md-3"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
+        'before_widget' => ' <div class="col-md-6 col-lg-3"><div id="%1$s" class="footer-widget text-light  widget %2$s">',
         'after_widget' => '</div></div>'
     ));
 }
@@ -407,3 +407,29 @@ if (!function_exists('political_default_fonts')) {
     }
 }
 add_action('wp_head', 'political_default_fonts');
+
+//political import demo content
+function political_import_demo_content()
+{
+    return array(
+        array(
+            'import_file_name'           => esc_html__('Political Demo', 'political'),
+            'import_file_url'            => esc_url('https://raw.githubusercontent.com/akashmdiu/political-demo-content/master/demo-content.xml'),
+            'import_widget_file_url'     => esc_url('https://raw.githubusercontent.com/akashmdiu/political-demo-content/master/demo-widget.wie'),
+            'import_customizer_file_url' => esc_url('https://raw.githubusercontent.com/akashmdiu/political-demo-content/master/demo-customization.dat'),
+            'import_notice'              => esc_html__('Please waiting for a few minutes, do not close the window or refresh the page until the data is imported.', 'political'),
+            'preview_url'                => esc_url('https://wp-political.themeix.com'),
+            'import_preview_image_url'     => 'https://github.com/akashmdiu/political-demo-content/blob/master/demo.png',
+        ),
+    );
+}
+add_filter('pt-ocdi/import_files', 'political_import_demo_content');
+
+function political_import_after_menu()
+{
+    $themex_main_menu = get_term_by('name', 'primary menu', 'nav_menu');
+    set_theme_mod('nav_menu_locations', array(
+        'primary_menu' => $themex_main_menu->term_id,
+    ));
+}
+add_action('pt-ocdi/after_import', 'political_import_after_menu');

@@ -115,6 +115,11 @@ Kirki::add_section('category_page', array(
 	'priority'    => 9,
 	'panel'       => 'page_options',
 ));
+Kirki::add_section('archive_page', array(
+	'title'       => esc_html__('Archive Page', 'political'),
+	'priority'    => 10,
+	'panel'       => 'page_options',
+));
 Kirki::add_section('search_result', array(
 	'title'       => esc_html__('Search Result', 'political'),
 	'priority'    => 11,
@@ -581,6 +586,32 @@ Kirki::add_field(
 		'label'       => esc_html__('Background Overlay', 'political'),
 		'description'       => esc_html__('Upload you banner background image', 'political'),
 		'section'     => 'category_page',
+		'default'     => '',
+		'priority'    => 3,
+	)
+);
+
+
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'image',
+		'settings'    => 'archive_banner_bg',
+		'label'       => esc_html__('Banner Background', 'political'),
+		'description'       => esc_html__('Upload you banner background image', 'political'),
+		'section'     => 'archive_page',
+		'default'     => '',
+		'priority'    => 1,
+	)
+);
+Kirki::add_field(
+	'political_config',
+	array(
+		'type'        => 'color',
+		'settings'    => 'archive_bg_overlay',
+		'label'       => esc_html__('Background Overlay', 'political'),
+		'description'       => esc_html__('Upload you banner background image', 'political'),
+		'section'     => 'archive_page',
 		'default'     => '',
 		'priority'    => 3,
 	)

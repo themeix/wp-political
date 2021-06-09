@@ -7,7 +7,7 @@ Description: Political is a blank canvas for your ideas and it makes the block e
 Requires at least: 5.3
 Tested up to: 5.6
 Requires PHP: 5.6
-Version: 1.0
+Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: twentytwentyone
@@ -153,9 +153,6 @@ ul.navbar-nav.nav-search-cart {
     max-width: 170px;
 }
 
-ul.dropdown-menu.sub-dropdown {
-    width: 180px;
-}
 
 ul.dropdown-menu.sub-dropdown li {
     width: 100%;
@@ -257,15 +254,15 @@ a.added_to_cart.wc-forward {
     padding-top: 0;
 }
 
-/* .wc-proceed-to-checkout a.checkout-button { */
-
-/*padding-top: 0!important;*/
-
-/* } */
 
 .page-title-area {
     min-height: 40vh;
     background: #4c3b52;
+}
+.page-archive-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 a.nav-link.cart-bar {
@@ -538,10 +535,11 @@ div#customer_details {
     top: 8px;
 }
 
-.footer-area .widget_text.col-md-3, .footer-area .widget_text.col-md-4 {
+.footer-area .widget_text.col-lg-3, .footer-area .widget_text.col-lg-4 {
     display: flex;
     align-items: center;
 }
+
 .footer-area .wrapper-widget-center {
     display: block;
 }
@@ -550,9 +548,13 @@ div#customer_details {
     margin-left: 25%;
 }
 
+.woocommerce-page.columns-3 ul.products li.product, .woocommerce.columns-3 ul.products li.product {
+    width: 33.333%;
+    margin: 0;
+    padding: 0 15px;
+}
 
 @media only screen and (max-width: 991px) {
-    
     .header-4.mobile-nav .mean-bar {
         background: white!important;
     }
@@ -677,14 +679,46 @@ div#customer_details {
     .logged-in header.header-area.fixed {
         margin-top: 32px;
     }
-
     .footer-area.footer-1 div#nav_menu-2 {
         margin-left: 0%;
+    }
+    .woocommerce-page.columns-3 ul.products li.product, .woocommerce.columns-3 ul.products li.product {
+        width: 50%;
+        padding: 0 15px;
+        margin: 0;
+    }
+    .mean-container .mean-nav ul li a.mean-expand {
+        display: flex;
+        align-items: center;
+    }
+    .logged-in header.header-area.fixed {
+        margin-top: 0;
     }
 }
 
 @media only screen and (max-width: 767px) {
+    .footer-top.py-5 {
+        padding: 3.25rem 1.25em!important;
+    }
+    .admin-bar .header-area.fixed {
+        top: 45px;
+    }
+    .woocommerce ul.products[class*=columns-] li.product, .woocommerce-page ul.products[class*=columns-] li.product {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+    .footer-widget {
+        padding-bottom: 0;
+    }
+    .wrapper-widget-center{
+        text-align: left!important;    
+    
+    }
+}
+
+@media only screen and (max-width: 600px) {
     .logged-in header.header-area.fixed {
-        margin-top: 45px;
+        margin-top: 0;
+        top: 0;
     }
 }

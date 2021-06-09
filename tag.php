@@ -1,13 +1,13 @@
 <?php get_header(); ?>
 <?php
 $page_bg = POLITICAL_IMG_URL . '/hero-bg-img.jpg';
-if (get_theme_mod('author_banner_bg')) :
-    $page_bg = get_theme_mod('author_banner_bg');
+if (get_theme_mod('tag_banner_bg')) :
+    $page_bg = get_theme_mod('tag_banner_bg');
 endif;
 ?>
 
 <!--/// Page Title Area /// -->
-<div class="page-title-area py-5 position-relative overflow-hidden">
+<div class="page-title-area py-5 position-relative overflow-hidden page-archive-title">
     <div class="all-bg-image p-category"><img src="<?php echo esc_url($page_bg); ?>" alt="<?php the_title(); ?>"></div>
     <div class="container">
         <div class="page-title-wrapper text-light text-center">
